@@ -15,6 +15,8 @@ export interface McpModel {
   mcpModelId: string | null;
   /** Widest native aspect ratio the model supports — we use native ratios, no cropping. */
   maxAspect: string;
+  /** Credit cost from the MCP `get_cost` preflight (agent-queried snapshot — see MODEL_COSTS_AS_OF). */
+  approxCredits?: string;
   note: string;
 }
 
@@ -47,24 +49,32 @@ export const videoModelMap: Record<VideoModel, McpModel> = {
   },
 };
 
+/** Date the `approxCredits` below were measured via the MCP `get_cost` preflight. */
+export const MODEL_COSTS_AS_OF = "2026-07-15";
+
 /**
  * Keyframe (image) model options. `soul_2` is the current default used so far;
  * the alternatives fit this project's content better (recorded for a future switch).
+ * `approxCredits` are MCP `get_cost` snapshots for a single 2k image at the model's max aspect.
+ * (MCP costs are agent-queried — they can't be fetched from a standalone script — so recorded here.)
  */
 export const keyframeModelMap: Record<string, McpModel> = {
   default: {
     mcpModelId: "soul_2",
     maxAspect: "16:9",
+    approxCredits: "1 (0.12) @ 2k",
     note: "Soul 2.0 — current default; UGC/portrait, weaker on abstract/text",
   },
   cinematic: {
     mcpModelId: "soul_cinematic",
     maxAspect: "21:9",
-    note: "Soul Cinema — cinema stills / concept art; better for abstract sci-viz scenes (1,2,3,5,6)",
+    approxCredits: "1 (0.12) @ 2k, 21:9",
+    note: "Soul Cinema — cinema stills / concept art; better for abstract sci-viz scenes (1,2,3,5,6); same cost as soul_2",
   },
   diagram: {
     mcpModelId: "nano_banana_pro",
     maxAspect: "21:9",
-    note: "Nano Banana Pro — text/diagram rendering, 4k; better for labeled scenes (4,7,8,9)",
+    approxCredits: "2 @ 2k, 21:9",
+    note: "Nano Banana Pro — text/diagram rendering, 4k; better for labeled scenes (4,7,8,9); ~2x cost",
   },
 };
