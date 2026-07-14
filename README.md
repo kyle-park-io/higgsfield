@@ -39,6 +39,7 @@ directly from this session.
 | `pnpm typecheck` | Type-check the project (`tsc --noEmit`) |
 | `pnpm export:prompts` | Regenerate `prompts/sceneNN.md` from the scenes SSOT |
 | `pnpm shot-list` | Print the per-scene status table |
+| `pnpm plan:report` | Plan tiers + the minimum Higgsfield plan each model/scene needs |
 
 ## Layout
 
@@ -53,6 +54,34 @@ prompts/           generated per-scene prompt files (tracked)
 keyframes/         Soul stills (git-ignored — large binaries)
 outputs/           rendered video clips (git-ignored — large binaries)
 ```
+
+## Plans & minimum tier
+
+Model access is gated by Higgsfield subscription tier (credit-based). Snapshot **as of
+2026-07-15** — plans/prices drift, so verify on the [pricing page](https://higgsfield.ai/pricing)
+and by the in-app lock icons. Encoded in [`src/models.ts`](./src/models.ts); run `pnpm plan:report`.
+
+| Plan | ~Price | Credits | Notes |
+|---|---|---|---|
+| Free | $0 | ~10/day | watermark, selected models, **no Veo** |
+| Starter | $15/mo | 200/mo | selected models; Seedance 2.0 **Fast** only |
+| Plus | $39/mo | 1,000/mo | **all models** — full Seedance 2.0 + Veo 3.1 |
+| Ultra | $99/mo | 3,000/mo | high volume; unlimited Kling (annual) |
+
+Minimum plan per model used in this project:
+
+| Model | Min plan | Note |
+|---|---|---|
+| Soul 2.0 (keyframes) | Starter | unlimited on Starter+ |
+| Cinema Studio | Starter | bundled with Soul/Cinema unlimited |
+| DoP | Starter | Lite runs on free credits; Standard/Turbo paid |
+| Kling 3.0 | Starter | selected models on Starter |
+| Seedance 2.0 (full) | **Plus** | Starter has only Seedance 2.0 *Fast* |
+| Veo 3.1 | **Plus** | not on Free; premium credit cost |
+
+**Bottom line:** the recommended pipeline (full Seedance 2.0 as the main model, Veo 3.1 as an
+alt) needs **Plus ($39/mo annual)**. Starter covers only a cheaper proof cut (Soul keyframes +
+Kling / Cinema Studio / DoP Lite + Seedance *Fast*).
 
 ## Workflow
 

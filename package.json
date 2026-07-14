@@ -10,7 +10,8 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "export:prompts": "node --disable-warning=ExperimentalWarning src/scripts/export-prompts.ts",
-    "shot-list": "node --disable-warning=ExperimentalWarning src/scripts/shot-list.ts"
+    "shot-list": "node --disable-warning=ExperimentalWarning src/scripts/shot-list.ts",
+    "plan:report": "node --disable-warning=ExperimentalWarning src/scripts/plan-report.ts"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
