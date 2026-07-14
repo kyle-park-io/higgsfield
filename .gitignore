@@ -5,6 +5,9 @@ dist/
 .env.*
 !.env.example
 
+# Personal Claude Code settings (local MCP approvals) — not committed
+.claude/settings.local.json
+
 # Internal instruction / scenario docs — kept local, not committed
 docs/
 
