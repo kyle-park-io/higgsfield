@@ -18,7 +18,7 @@ for (const s of scenes) {
 - **Format:** ${production.aspectRatio} · ${production.fps}fps · ${production.clipSeconds}s
 - **Status:** ${s.status}
 
-## Keyframe (Soul) prompt
+## Keyframe prompt
 ${s.keyframePrompt}
 
 ## Motion (video) prompt

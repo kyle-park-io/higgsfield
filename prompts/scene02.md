@@ -6,7 +6,7 @@
 - **Format:** 16:9 · 24fps · 15s
 - **Status:** todo
 
-## Keyframe (Soul) prompt
+## Keyframe prompt
 A completed amber molecular block with a glowing crystalline block-header nucleus at its center, a beam of light extending from the nucleus toward a previous block, a chain of linked blocks receding into dark space
 
 ## Motion (video) prompt

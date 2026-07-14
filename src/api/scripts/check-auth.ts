@@ -1,5 +1,5 @@
 // Verify Higgsfield API credentials WITHOUT generating anything (no credits spent).
-// Run:  node --env-file=.env src/scripts/check-auth.ts   (or: pnpm check:auth)
+// Run:  node --env-file=.env src/api/scripts/check-auth.ts   (or: pnpm check:auth)
 // Only HTTP status is printed — credentials are never logged.
 
 const keyId = process.env.HF_API_KEY?.trim();
@@ -8,7 +8,7 @@ const combined = process.env.HF_KEY?.trim();
 
 if (!combined && (!keyId || !secret)) {
   console.error("✗ Missing credentials. Set HF_API_KEY + HF_API_SECRET (or HF_KEY) in .env, then:");
-  console.error("    node --env-file=.env src/scripts/check-auth.ts");
+  console.error("    node --env-file=.env src/api/scripts/check-auth.ts");
   process.exit(1);
 }
 

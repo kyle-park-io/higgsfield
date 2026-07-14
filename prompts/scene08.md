@@ -6,7 +6,7 @@
 - **Format:** 16:9 · 24fps · 15s
 - **Status:** todo
 
-## Keyframe (Soul) prompt
+## Keyframe prompt
 A vertical transparent stack test-tube in a dark lab; particles labeled "Sig" and "PubKey" stacked inside; opcode operations shown as colliding particles; violet-magenta energy; a single green "TRUE" particle glowing at the top
 
 ## Motion (video) prompt

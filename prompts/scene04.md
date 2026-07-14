@@ -6,7 +6,7 @@
 - **Format:** 16:9 · 24fps · 15s
 - **Status:** todo
 
-## Keyframe (Soul) prompt
+## Keyframe prompt
 Extreme close-up inside a block molecule; a single glowing transaction atom at center, its structure separated into orbital shells — central nucleus labeled "version / locktime", left orbit "inputs (prev txid, vout, sequence, scriptSig/witness)", right orbit "outputs (amount, scriptPubKey)"; clean atomic diagram, cyan glow
 
 ## Motion (video) prompt

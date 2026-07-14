@@ -6,7 +6,7 @@
 - **Format:** 16:9 · 24fps · 15s
 - **Status:** keyframe
 
-## Keyframe (Soul) prompt
+## Keyframe prompt
 Abstract dark cosmic void filled with dozens of small glowing spherical plasma orbs of varying sizes drifting in volumetric fog, cool cyan-white bioluminescence with faint radiating light filaments; among the cyan orbs, one single larger warm-gold orb stands out — a glowing golden Bitcoin token marked with the ₿ symbol, representing the coinbase transaction; scientific particle-simulation aesthetic, cinematic, ultra detailed; no text, no numbers, no UI panels, no Ethereum, no diamond or octahedron gem, no other cryptocurrency logos
 
 ## Motion (video) prompt

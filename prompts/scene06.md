@@ -6,7 +6,7 @@
 - **Format:** 16:9 · 24fps · 15s
 - **Status:** todo
 
-## Keyframe (Soul) prompt
+## Keyframe prompt
 Several transaction atoms connected like a chemical reaction diagram; glowing arrows from one tx's outputs into the next tx's inputs, forming a branching directed graph (not a straight line); cyan bonds, dark void
 
 ## Motion (video) prompt

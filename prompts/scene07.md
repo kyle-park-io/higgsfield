@@ -6,7 +6,7 @@
 - **Format:** 16:9 · 24fps · 15s
 - **Status:** todo
 
-## Keyframe (Soul) prompt
+## Keyframe prompt
 Extreme macro view inside a transaction output revealing a glowing violet/magenta "scriptPubKey" binding-force lock; incoming signature particle and public-key particle from the next tx's input approaching an experiment chamber; floating opcode text "OP_DUP OP_HASH160 <PubKeyHash> OP_EQUALVERIFY OP_CHECKSIG"; shallow depth of field
 
 ## Motion (video) prompt

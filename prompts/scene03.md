@@ -6,7 +6,7 @@
 - **Format:** 16:9 · 24fps · 15s
 - **Status:** todo
 
-## Keyframe (Soul) prompt
+## Keyframe prompt
 A glowing amber block molecule passing before multiple identical node-scanner devices arranged around it in a dark lab-like void, each scanner projecting a thin scanning grid onto the block
 
 ## Motion (video) prompt

@@ -6,7 +6,7 @@
 - **Format:** 16:9 · 24fps · 15s
 - **Status:** todo
 
-## Keyframe (Soul) prompt
+## Keyframe prompt
 A bright glowing output atom labeled "UTXO A / Alice"; a reaching input arm from a new transaction pointing at it; a red "SPENT" seal forming on UTXO A; a newly crystallizing "UTXO B / Bob"; a smaller "change" UTXO returning toward Alice; dark void
 
 ## Motion (video) prompt

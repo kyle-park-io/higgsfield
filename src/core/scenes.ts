@@ -5,7 +5,7 @@ export const production = {
   aspectRatio: "16:9", // Soul keyframe native ratio; video uses each model's own native ratio — no cropping
   fps: 24,
   clipSeconds: 15,
-  keyframeModel: "Soul 2.0",
+  keyframeModel: "soul_cinematic", // best Soul-family fit (21:9 cinema); cheap on Free — see src/mcp/model-map.ts
   styleTags:
     "dark cosmic void, bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic",
   /** Fixed palette (Soul HEX / Moodboard) reused on every keyframe. */
