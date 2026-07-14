@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "export:prompts": "node --disable-warning=ExperimentalWarning src/scripts/export-prompts.ts",
     "shot-list": "node --disable-warning=ExperimentalWarning src/scripts/shot-list.ts",
-    "plan:report": "node --disable-warning=ExperimentalWarning src/scripts/plan-report.ts"
+    "plan:report": "node --disable-warning=ExperimentalWarning src/scripts/plan-report.ts",
+    "check:auth": "node --disable-warning=ExperimentalWarning --env-file=.env src/scripts/check-auth.ts"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
