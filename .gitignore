@@ -3,6 +3,7 @@ dist/
 *.log
 .env
 .env.*
+!.env.example
 
 # Internal instruction / scenario docs — kept local, not committed
 docs/
