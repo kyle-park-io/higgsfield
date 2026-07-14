@@ -11,6 +11,8 @@ model id from [`model-map.ts`](./model-map.ts).
   pre-approved via `.claude/settings.local.json` (`enabledMcpjsonServers`).
 - Uses your **Higgsfield account/subscription credits** — separate from the API path. Free ≈ 10
   credits/day, watermarked outputs. Check with the `balance` tool.
+- **Free = max 1 concurrent job** — batches must run serially (submit → poll → next). Each free-queue
+  image takes ~60–90s.
 
 ## Generation flow (what Claude does)
 1. Read the scene's prompt from `core/scenes.ts`.

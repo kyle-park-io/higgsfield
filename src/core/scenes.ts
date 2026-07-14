@@ -54,7 +54,7 @@ export const scenes: Scene[] = [
     models: { primary: "Seedance 2.0", alt: "DoP" },
     narration:
       "블록은 독립적으로 떠 있지 않는다. 각 블록은 이전 블록을 가리키며 순서 있는 기록을 만든다. 과거의 한 블록을 바꾸려면, 그 이후의 연결도 함께 다시 만들어야 한다.",
-    status: "todo",
+    status: "keyframe",
   },
   {
     id: 3,
@@ -68,7 +68,7 @@ export const scenes: Scene[] = [
     models: { primary: "Seedance 2.0", alt: "DoP" },
     narration:
       "비트코인에는 하나의 중앙 검사자가 없다. 각 풀노드는 블록과 트랜잭션을 스스로 검증한다. 같은 규칙을 실행한 노드들이 같은 유효한 기록을 선택한다.",
-    status: "todo",
+    status: "keyframe",
   },
   {
     id: 4,
@@ -82,7 +82,7 @@ export const scenes: Scene[] = [
     models: { primary: "DoP", alt: "Seedance 2.0" },
     narration:
       "트랜잭션은 단순한 송금 메시지가 아니다. 이전 출력을 가리키는 입력과, 앞으로 사용될 새로운 출력을 만드는 구조체다.",
-    status: "todo",
+    status: "keyframe",
   },
   {
     id: 5,
@@ -96,7 +96,7 @@ export const scenes: Scene[] = [
     models: { primary: "Seedance 2.0", alt: "Kling 3.0" },
     narration:
       "비트코인에서 잔액 덩어리가 주소 사이를 이동하는 것은 아니다. 이전의 미사용 출력을 소비하고, 새로운 조건을 가진 출력을 만든다.",
-    status: "todo",
+    status: "keyframe",
   },
   {
     id: 6,
@@ -110,7 +110,7 @@ export const scenes: Scene[] = [
     models: { primary: "Seedance 2.0", alt: "Kling 3.0" },
     narration:
       "트랜잭션의 연결은 단순한 계좌 이력보다 소비 가능한 출력들의 방향성 그래프에 가깝다. 하나의 출력은 유효한 체인에서 단 한 번만 소비될 수 있다.",
-    status: "todo",
+    status: "keyframe",
   },
   {
     id: 7,
@@ -124,7 +124,7 @@ export const scenes: Scene[] = [
     models: { primary: "Cinema Studio", alt: "Seedance 2.0" },
     narration:
       "출력은 단순히 소유자의 이름을 기록하지 않는다. 앞으로 이 출력을 소비하기 위해 만족해야 할 조건을 기록한다. 소비자는 다음 트랜잭션의 입력에서 그 조건을 만족하는 증명을 제시한다.",
-    status: "todo",
+    status: "keyframe",
   },
   {
     id: 8,
@@ -138,7 +138,7 @@ export const scenes: Scene[] = [
     models: { primary: "Seedance 2.0", alt: "Veo 3.1" },
     narration:
       "스크립트는 선언문이 아니라 실행 순서다. 데이터가 스택에 쌓이고, 연산자가 하나씩 실행된다. 최종 결과가 참이어야 이전 출력을 소비할 수 있다.",
-    status: "todo",
+    status: "keyframe",
   },
   {
     id: 9,
@@ -152,6 +152,6 @@ export const scenes: Scene[] = [
     models: { primary: "Seedance 2.0", alt: "Kling 3.0" },
     narration:
       "가장 작은 층으로 내려오면 논쟁의 본질이 나타난다. 같은 바이트라도 어떤 것은 소유권을 증명하고, 어떤 것은 지불 조건을 만들며, 어떤 것은 임의의 정보를 운반한다. 따라서 BIP110의 질문은 단순히 'OP_RETURN을 허용할 것인가'가 아니다. 트랜잭션의 여러 데이터 표면에 대해 합의 규칙이 어디까지 크기와 형식을 제한할 것인가의 문제다.",
-    status: "todo",
+    status: "keyframe",
   },
 ];

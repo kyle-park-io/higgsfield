@@ -4,7 +4,7 @@
 - **Camera:** Crash Zoom In → Eyes In
 - **Model:** Cinema Studio (A) / Seedance 2.0 (B)
 - **Format:** 16:9 · 24fps · 15s
-- **Status:** todo
+- **Status:** keyframe
 
 ## Keyframe prompt
 Extreme macro view inside a transaction output revealing a glowing violet/magenta "scriptPubKey" binding-force lock; incoming signature particle and public-key particle from the next tx's input approaching an experiment chamber; floating opcode text "OP_DUP OP_HASH160 <PubKeyHash> OP_EQUALVERIFY OP_CHECKSIG"; shallow depth of field

@@ -4,7 +4,7 @@
 - **Camera:** Crash Zoom In → 360 Orbit
 - **Model:** DoP (A) / Seedance 2.0 (B)
 - **Format:** 16:9 · 24fps · 15s
-- **Status:** todo
+- **Status:** keyframe
 
 ## Keyframe prompt
 Extreme close-up inside a block molecule; a single glowing transaction atom at center, its structure separated into orbital shells — central nucleus labeled "version / locktime", left orbit "inputs (prev txid, vout, sequence, scriptSig/witness)", right orbit "outputs (amount, scriptPubKey)"; clean atomic diagram, cyan glow

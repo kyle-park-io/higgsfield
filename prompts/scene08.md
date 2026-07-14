@@ -4,7 +4,7 @@
 - **Camera:** Static
 - **Model:** Seedance 2.0 (A) / Veo 3.1 (B)
 - **Format:** 16:9 · 24fps · 15s
-- **Status:** todo
+- **Status:** keyframe
 
 ## Keyframe prompt
 A vertical transparent stack test-tube in a dark lab; particles labeled "Sig" and "PubKey" stacked inside; opcode operations shown as colliding particles; violet-magenta energy; a single green "TRUE" particle glowing at the top

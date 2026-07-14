@@ -4,7 +4,7 @@
 - **Camera:** Static
 - **Model:** Seedance 2.0 (A) / DoP (B)
 - **Format:** 16:9 · 24fps · 15s
-- **Status:** todo
+- **Status:** keyframe
 
 ## Keyframe prompt
 A glowing amber block molecule passing before multiple identical node-scanner devices arranged around it in a dark lab-like void, each scanner projecting a thin scanning grid onto the block

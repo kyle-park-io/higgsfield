@@ -4,7 +4,7 @@
 - **Camera:** Dolly Out → Crash Zoom In
 - **Model:** Seedance 2.0 (A) / DoP (B)
 - **Format:** 16:9 · 24fps · 15s
-- **Status:** todo
+- **Status:** keyframe
 
 ## Keyframe prompt
 A completed amber molecular block with a glowing crystalline block-header nucleus at its center, a beam of light extending from the nucleus toward a previous block, a chain of linked blocks receding into dark space

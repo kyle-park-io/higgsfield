@@ -4,7 +4,7 @@
 - **Camera:** Dolly In
 - **Model:** Seedance 2.0 (A) / Kling 3.0 (B)
 - **Format:** 16:9 · 24fps · 15s
-- **Status:** todo
+- **Status:** keyframe
 
 ## Keyframe prompt
 A bright glowing output atom labeled "UTXO A / Alice"; a reaching input arm from a new transaction pointing at it; a red "SPENT" seal forming on UTXO A; a newly crystallizing "UTXO B / Bob"; a smaller "change" UTXO returning toward Alice; dark void
