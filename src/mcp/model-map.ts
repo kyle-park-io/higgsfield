@@ -37,7 +37,7 @@ export const keyframeModels: Record<string, ModelInfo> = {
     mcpModelId: "soul_cinematic",
     aspects: ["1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3", "21:9"],
     cost: { "1.5k": 0.12, "2k": 0.12 },
-    note: "Soul Cinema — cinema stills/concept art, 21:9. Filmic mood; sparse on dense particle fields. ~free.",
+    note: "Soul Cinema — cinema stills/concept art, 21:9. Filmic; renders short text labels legibly (unlike soul_2). Sparse on dense many-particle scenes (Scene 1). ~free. Used for all 9 keyframes.",
   },
   soul_2: {
     mcpModelId: "soul_2",
