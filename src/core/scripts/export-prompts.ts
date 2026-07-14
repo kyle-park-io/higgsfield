@@ -3,8 +3,8 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { production, scenes } from "../scenes.ts";
 
-// repo root = two levels up from src/scripts/
-const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
+// repo root = three levels up from src/core/scripts/
+const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
 const outDir = join(root, "prompts");
 mkdirSync(outDir, { recursive: true });
 

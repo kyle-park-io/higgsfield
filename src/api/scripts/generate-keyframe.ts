@@ -3,7 +3,7 @@
 // NOT the MCP. It SPENDS CREDITS.
 //
 // Run:  node --disable-warning=ExperimentalWarning --env-file=.env \
-//         src/scripts/generate-keyframe.ts [sceneId]
+//         src/api/scripts/generate-keyframe.ts [sceneId]
 //   or:  pnpm generate:keyframe [sceneId]      (defaults to scene 1)
 //
 // Use Soul's native max ratio (16:9, 2048x1152) as-is — no cropping.
@@ -12,7 +12,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { BatchSize, HiggsfieldClient, SoulQuality, SoulSize } from "@higgsfield/client";
-import { scenes } from "../scenes.ts";
+import { scenes } from "../../core/scenes.ts";
 
 const sceneId = Number(process.argv[2] ?? "1");
 const scene = scenes.find((s) => s.id === sceneId);
@@ -66,7 +66,7 @@ try {
     process.exit(2);
   }
 
-  const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
+  const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
   const n = String(scene.id).padStart(2, "0");
   const dir = join(root, "keyframes", `scene${n}`); // per-scene folder — keep every attempt
   mkdirSync(dir, { recursive: true });

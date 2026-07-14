@@ -47,19 +47,34 @@ directly from this session.
 .mcp.json          Higgsfield MCP (project scope)
 docs/              production guide + original scenario (local only — git-ignored)
 src/
-  types.ts         Scene / camera / model types
-  scenes.ts        the 9 scenes as typed data (SSOT) + fixed palette/format
-  scripts/         export-prompts.ts, shot-list.ts
+  core/            shared, path-agnostic
+    types.ts       Scene / camera / model types
+    scenes.ts      the 9 scenes as typed data (SSOT) + palette/format
+    models.ts      plan tiers + per-model minimum-plan reference
+    scripts/       export-prompts.ts, shot-list.ts, plan-report.ts
+  mcp/             MCP path (active) — model-map.ts + README.md  (agent-driven, no CLI)
+  api/             API path (alt)   — scripts/{check-auth,generate-keyframe}.ts + README.md
 prompts/           generated per-scene prompt files (tracked)
-keyframes/         Soul stills (git-ignored — large binaries)
+keyframes/         stills, per scene: keyframes/sceneNN/  (git-ignored — large binaries)
 outputs/           rendered video clips (git-ignored — large binaries)
 ```
+
+## Two generation paths
+
+Two independent ways to drive Higgsfield — see each folder's README:
+
+- **[MCP](./src/mcp/README.md) — active, agent-driven.** Claude calls the MCP `generate_*` tools
+  in-session (no CLI). Uses your Higgsfield **subscription/account credits**.
+- **[API](./src/api/README.md) — alternative, scriptable.** `pnpm generate:keyframe` via the
+  `@higgsfield/client` SDK. Uses a **separate platform API credit balance** (`.env` keys).
+
+Both read prompts from the shared SSOT, [`src/core/scenes.ts`](./src/core/scenes.ts).
 
 ## Plans & minimum tier
 
 Model access is gated by Higgsfield subscription tier (credit-based). Snapshot **as of
 2026-07-15** — plans/prices drift, so verify on the [pricing page](https://higgsfield.ai/pricing)
-and by the in-app lock icons. Encoded in [`src/models.ts`](./src/models.ts); run `pnpm plan:report`.
+and by the in-app lock icons. Encoded in [`src/core/models.ts`](./src/core/models.ts); run `pnpm plan:report`.
 
 | Plan | ~Price | Credits | Notes |
 |---|---|---|---|
@@ -85,7 +100,7 @@ Kling / Cinema Studio / DoP Lite + Seedance *Fast*).
 
 ## Workflow
 
-1. Edit prompts/camera/models/status in **`src/scenes.ts`** (single source of truth).
+1. Edit prompts/camera/models/status in **`src/core/scenes.ts`** (single source of truth).
 2. `pnpm export:prompts` → refreshes `prompts/`.
 3. Ask Claude to generate via the Higgsfield MCP: a Soul keyframe per scene → save under
    `keyframes/` → image-to-video with the scene's model → save under `outputs/`.
