@@ -67,14 +67,15 @@ try {
   }
 
   const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-  const dir = join(root, "keyframes");
+  const n = String(scene.id).padStart(2, "0");
+  const dir = join(root, "keyframes", `scene${n}`); // per-scene folder — keep every attempt
   mkdirSync(dir, { recursive: true });
 
-  const n = String(scene.id).padStart(2, "0");
+  const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
   for (const [i, url] of urls.entries()) {
     const ext = (url.split("?")[0]?.split(".").pop() ?? "png").toLowerCase();
     const suffix = urls.length > 1 ? `-${i + 1}` : "";
-    const out = join(dir, `scene${n}${suffix}.${ext}`);
+    const out = join(dir, `${stamp}${suffix}.${ext}`); // unique timestamp — never overwrite
     const res = await fetch(url);
     if (!res.ok) {
       console.error(`✗ Download failed (HTTP ${res.status}) for ${url}`);
