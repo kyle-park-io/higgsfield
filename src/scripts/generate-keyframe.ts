@@ -6,7 +6,7 @@
 //         src/scripts/generate-keyframe.ts [sceneId]
 //   or:  pnpm generate:keyframe [sceneId]      (defaults to scene 1)
 //
-// Soul has no 2.35:1 preset — widest is 2048x1152 (16:9); crop/letterbox later.
+// Use Soul's native max ratio (16:9, 2048x1152) as-is — no cropping.
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -28,7 +28,7 @@ if (!apiKey || !apiSecret) {
   process.exit(1);
 }
 
-const size = SoulSize.LANDSCAPE_2048x1152; // 16:9 — closest to the project's 2.35:1
+const size = SoulSize.LANDSCAPE_2048x1152; // 16:9 — Soul's native max ratio (no cropping)
 const client = new HiggsfieldClient({ apiKey, apiSecret });
 
 console.log(`Scene ${scene.id} "${scene.title}" — Soul keyframe (single · HD · ${size})`);
