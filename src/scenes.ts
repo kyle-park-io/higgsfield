@@ -33,7 +33,7 @@ export const scenes: Scene[] = [
     title: "흩어진 거래들이 모인다",
     layer: "molecule",
     keyframePrompt:
-      "Dark cosmic void, dozens of small glowing atom-like transaction particles of varying sizes floating, cool cyan-white light; some particles show 1 input + 2 outputs, others many inputs/outputs; one unique bright gold particle with distinct geometry (coinbase), volumetric fog, scientific visualization",
+      "Abstract dark cosmic void filled with dozens of small glowing spherical plasma orbs of varying sizes drifting in volumetric fog, cool cyan-white bioluminescence with faint radiating light filaments; among the cyan orbs, one single larger warm-gold orb stands out — a glowing golden Bitcoin token marked with the ₿ symbol, representing the coinbase transaction; scientific particle-simulation aesthetic, cinematic, ultra detailed; no text, no numbers, no UI panels, no Ethereum, no diamond or octahedron gem, no other cryptocurrency logos",
     motionPrompt:
       "0–5s: scattered cyan transaction particles drift in dark void. 5–11s: particles are pulled inward and aggregate into one large translucent amber molecular block; the gold coinbase particle enters first and settles at the core. 11–15s: block completes with a soft pulsing glow. Particle-aggregation VFX, volumetric light.",
     camera: ["Dolly In"],
