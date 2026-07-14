@@ -1,0 +1,16 @@
+node_modules/
+dist/
+*.log
+.env
+.env.*
+
+# Internal instruction / scenario docs — kept local, not committed
+docs/
+
+# Large generated media — keep the folders, ignore their contents
+keyframes/*
+outputs/*
+!keyframes/.gitkeep
+!outputs/.gitkeep
+
+.DS_Store

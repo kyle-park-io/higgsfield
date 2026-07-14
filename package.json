@@ -1,0 +1,19 @@
+{
+  "name": "higgsfield-quantum-bitcoin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Higgsfield production environment for the Quantum Bitcoin Elements 9-scene explainer (driven via the Higgsfield MCP).",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "export:prompts": "node --disable-warning=ExperimentalWarning src/scripts/export-prompts.ts",
+    "shot-list": "node --disable-warning=ExperimentalWarning src/scripts/shot-list.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}
