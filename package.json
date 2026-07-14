@@ -12,10 +12,14 @@
     "export:prompts": "node --disable-warning=ExperimentalWarning src/scripts/export-prompts.ts",
     "shot-list": "node --disable-warning=ExperimentalWarning src/scripts/shot-list.ts",
     "plan:report": "node --disable-warning=ExperimentalWarning src/scripts/plan-report.ts",
-    "check:auth": "node --disable-warning=ExperimentalWarning --env-file=.env src/scripts/check-auth.ts"
+    "check:auth": "node --disable-warning=ExperimentalWarning --env-file=.env src/scripts/check-auth.ts",
+    "generate:keyframe": "node --disable-warning=ExperimentalWarning --env-file=.env src/scripts/generate-keyframe.ts"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
     "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@higgsfield/client": "^0.2.1"
   }
 }
