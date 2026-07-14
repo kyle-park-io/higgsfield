@@ -48,12 +48,17 @@ Costs are MCP `get_cost` snapshots (re-check before a real run). Aspect ratio do
 
 **Video (per clip):**
 
-| model | cost | note |
-|---|---|---|
-| `kling3_0` | 7.5cr (5s, silent) | cheapest video |
-| `veo3_1` | 22cr (8s, basic) | top-tier cinematic |
-| `seedance_2_0` | 22.5cr (720p/5s) → 45cr (1080p) | our primary; 21:9 |
-| `cinematic_studio_3_0` | 25cr (720p/5s) | Cinema Studio; also the `DoP` substitute |
+| model | cost | duration | note |
+|---|---|---|---|
+| `kling3_0` | 7.5cr (5s, silent) | 3–15s | cheapest video |
+| `veo3_1` | 22cr (8s, basic) | 4/6/8s (max 8) | top-tier; under the scenes' 15s |
+| `seedance_2_0` | 22.5cr (720p/5s) → 45cr (1080p) | 4–15s | our primary; 21:9 |
+| `cinematic_studio_3_0` | 25cr (720p/5s) | 4–15s | Cinema Studio; also the `DoP` substitute |
+
+**Camera moves are prompt-driven** — video models take `prompt + start_image` only (no camera-preset
+param), and `presets_show` returns viral/character templates, not the app's Camera Controls. So weave a
+scene's `camera` (CameraPreset) into the motion-prompt text. Use Seedance / Kling / Cinema for 15s
+clips (Veo caps at 8s).
 
 > 9 scenes × video is expensive relative to Free (~10 credits). Video needs a credit top-up /
 > upgrade / trial. Keyframes are cheap (≤ 2cr each).

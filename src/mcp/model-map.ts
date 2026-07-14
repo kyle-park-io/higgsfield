@@ -21,6 +21,8 @@ export interface ModelInfo {
   aspects: string[];
   /** Measured credit cost (MCP `get_cost`) keyed by a tier label (e.g. "2k", "720p/5s"). */
   cost: Record<string, number>;
+  /** Duration options/range for video models (omitted for images). */
+  durations?: string;
   note: string;
 }
 
@@ -55,31 +57,48 @@ export const keyframeChoice = {
 } as const;
 
 /* ── Video models ────────────────────────────────────────────────────────── */
-/** `scenes[].models` (VideoModel) → MCP video model. Costs are per single clip. */
 
+/**
+ * How camera moves work in the MCP video path — **prompt-driven**.
+ * The video models take `prompt + start_image` only; there is NO camera-preset param,
+ * and `presets_show` returns viral/character templates (BASEBALL GAME, KUNG FU HIT, …),
+ * NOT the app's Camera Controls (Dolly In / Crash Zoom / …). So a scene's `camera`
+ * (CameraPreset[]) must be woven into the motion-prompt TEXT when generating
+ * (e.g. prepend "slow dolly in, " / "crash zoom into the surface, ").
+ * Duration limits matter: scenes assume ~15s but Veo 3.1 caps at 8s — use
+ * Seedance / Kling / Cinema Studio for the full 15s clips.
+ */
+export const CAMERA_IN_MCP_VIDEO =
+  "prompt-driven — no camera-preset param; describe scene.camera in the motion prompt";
+
+/** `scenes[].models` (VideoModel) → MCP video model. Costs are per single clip. */
 export const videoModelMap: Record<VideoModel, ModelInfo> = {
   "Seedance 2.0": {
     mcpModelId: "seedance_2_0",
     aspects: ["auto", "16:9", "9:16", "4:3", "3:4", "1:1", "21:9"],
     cost: { "720p/5s": 22.5, "1080p/5s": 45 }, // silent, mode std; 720p→1080p doubles
-    note: "start/end image + image/video/audio refs, 4-15s, up to 4k. Our primary.",
+    durations: "4–15s",
+    note: "start/end image + image/video/audio refs, up to 4k. Our primary.",
   },
   "Kling 3.0": {
     mcpModelId: "kling3_0",
     aspects: ["16:9", "9:16", "1:1"],
     cost: { "5s/std/silent": 7.5 }, // cheapest video option
-    note: "multi-shot, motion transfer, 3-15s. Cheapest video. Audio ('sound:on') adds cost.",
+    durations: "3–15s",
+    note: "multi-shot, motion transfer. Cheapest video. Audio ('sound:on') adds cost.",
   },
   "Veo 3.1": {
     mcpModelId: "veo3_1",
     aspects: ["16:9", "9:16"],
     cost: { "8s/basic/fast": 22 },
-    note: "top-tier cinematic, 4/6/8s. quality basic/high/ultra raises cost.",
+    durations: "4/6/8s (max 8 — under the scenes' 15s)",
+    note: "top-tier cinematic. quality basic/high/ultra raises cost.",
   },
   "Cinema Studio": {
     mcpModelId: "cinematic_studio_3_0",
     aspects: ["auto", "21:9", "16:9", "4:3", "1:1", "3:4", "9:16"],
     cost: { "720p/5s": 25 },
+    durations: "4–15s",
     note: "cinema-grade video, genre hints, up to 4k.",
   },
   DoP: {
