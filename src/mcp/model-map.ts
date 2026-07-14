@@ -1,80 +1,91 @@
 import type { VideoModel } from "../core/types.ts";
 
 /**
- * Bridge from this project's model names (used in `core/scenes.ts`) to the real
- * Higgsfield **MCP** model ids, with native aspect ratios and notes.
+ * Authoritative Higgsfield **MCP** reference for this project: scene model names →
+ * real MCP model ids, native aspect ratios, and measured credit costs.
  *
- * Source: `models_explore(action:"list")` on 2026-07-15.
- * The MCP path is agent-driven: Claude reads a scene's prompt from `core/scenes.ts`
- * and calls the MCP `generate_image` / `generate_video` tools with the mapped id below.
- * There is no executable script here (MCP tools are invoked by the agent, not a CLI).
+ * Sources (all via the MCP, on the date below):
+ *   • catalog — `models_explore(action:"list", type:"image"|"video")`
+ *   • costs   — `generate_image` / `generate_video` with `get_cost:true` (no credits spent)
+ *
+ * Costs are agent-queried (MCP tools can't run from a standalone script), so they are
+ * snapshotted here. Run `pnpm models` to print this, and re-check with `get_cost`
+ * before a real run. We always use each model's **native** aspect ratio — never crop.
  */
+export const CATALOG_AS_OF = "2026-07-15";
 
-export interface McpModel {
+export interface ModelInfo {
   /** Real MCP model_id for `models_explore` / `generate_*` (null = no direct equivalent). */
   mcpModelId: string | null;
-  /** Widest native aspect ratio the model supports — we use native ratios, no cropping. */
-  maxAspect: string;
-  /** Credit cost from the MCP `get_cost` preflight (agent-queried snapshot — see MODEL_COSTS_AS_OF). */
-  approxCredits?: string;
+  /** Native aspect ratios the model supports. */
+  aspects: string[];
+  /** Measured credit cost (MCP `get_cost`) keyed by a tier label (e.g. "2k", "720p/5s"). */
+  cost: Record<string, number>;
   note: string;
 }
 
-/** `scenes[].models` (VideoModel) → MCP video model id. */
-export const videoModelMap: Record<VideoModel, McpModel> = {
-  "Seedance 2.0": {
-    mcpModelId: "seedance_2_0",
-    maxAspect: "21:9",
-    note: "start/end image + image/video/audio refs, 4-15s, up to 4k",
+/* ── Keyframe (image) models ─────────────────────────────────────────────── */
+
+export const keyframeModels: Record<string, ModelInfo> = {
+  nano_banana_pro: {
+    mcpModelId: "nano_banana_pro",
+    aspects: ["1:1", "3:2", "2:3", "4:3", "3:4", "4:5", "5:4", "9:16", "16:9", "21:9"],
+    cost: { "1k": 2, "2k": 2, "4k": 4 },
+    note: "⭐ best overall here — detail + text/diagrams, 21:9. Best Scene 1 result. 1k=2k=2cr (use 2k); 4k=4cr.",
   },
-  "Kling 3.0": {
-    mcpModelId: "kling3_0",
-    maxAspect: "16:9",
-    note: "multi-shot, audio sync, motion transfer, 3-15s",
+  soul_cinematic: {
+    mcpModelId: "soul_cinematic",
+    aspects: ["1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3", "21:9"],
+    cost: { "1.5k": 0.12, "2k": 0.12 },
+    note: "Soul Cinema — cinema stills/concept art, 21:9. Filmic mood; sparse on dense particle fields. ~free.",
   },
-  "Veo 3.1": {
-    mcpModelId: "veo3_1",
-    maxAspect: "16:9",
-    note: "top-tier cinematic, 4/6/8s, quality basic/high/ultra",
-  },
-  "Cinema Studio": {
-    mcpModelId: "cinematic_studio_3_0",
-    maxAspect: "21:9",
-    note: "cinema-grade video, genre hints, up to 4k",
-  },
-  DoP: {
-    mcpModelId: null,
-    maxAspect: "21:9",
-    note: "no direct MCP model — use Cinema Studio (cinematic_studio_3_0) as the camera-aware substitute",
+  soul_2: {
+    mcpModelId: "soul_2",
+    aspects: ["1:1", "16:9", "9:16", "4:3", "3:4", "3:2", "2:3"],
+    cost: { "1.5k": 0.12, "2k": 0.12 },
+    note: "Soul 2.0 — UGC/portrait/fashion, 16:9 max; weak on abstract & text. Legacy default. ~free.",
   },
 };
 
-/** Date the `approxCredits` below were measured via the MCP `get_cost` preflight. */
-export const MODEL_COSTS_AS_OF = "2026-07-15";
+/** Recommended keyframe model per use. */
+export const keyframeChoice = {
+  default: "nano_banana_pro", // best for this project's content (abstract + labeled scenes)
+  mood: "soul_cinematic", // pure establishing / atmosphere shots
+  cheap: "soul_2", // ~free when quality doesn't matter
+} as const;
 
-/**
- * Keyframe (image) model options. `soul_2` is the current default used so far;
- * the alternatives fit this project's content better (recorded for a future switch).
- * `approxCredits` are MCP `get_cost` snapshots for a single 2k image at the model's max aspect.
- * (MCP costs are agent-queried — they can't be fetched from a standalone script — so recorded here.)
- */
-export const keyframeModelMap: Record<string, McpModel> = {
-  default: {
-    mcpModelId: "soul_2",
-    maxAspect: "16:9",
-    approxCredits: "1 (0.12) @ 2k",
-    note: "Soul 2.0 — current default; UGC/portrait, weaker on abstract/text",
+/* ── Video models ────────────────────────────────────────────────────────── */
+/** `scenes[].models` (VideoModel) → MCP video model. Costs are per single clip. */
+
+export const videoModelMap: Record<VideoModel, ModelInfo> = {
+  "Seedance 2.0": {
+    mcpModelId: "seedance_2_0",
+    aspects: ["auto", "16:9", "9:16", "4:3", "3:4", "1:1", "21:9"],
+    cost: { "720p/5s": 22.5, "1080p/5s": 45 }, // silent, mode std; 720p→1080p doubles
+    note: "start/end image + image/video/audio refs, 4-15s, up to 4k. Our primary.",
   },
-  cinematic: {
-    mcpModelId: "soul_cinematic",
-    maxAspect: "21:9",
-    approxCredits: "1 (0.12) @ 2k, 21:9",
-    note: "Soul Cinema — cinema stills / concept art; better for abstract sci-viz scenes (1,2,3,5,6); same cost as soul_2",
+  "Kling 3.0": {
+    mcpModelId: "kling3_0",
+    aspects: ["16:9", "9:16", "1:1"],
+    cost: { "5s/std/silent": 7.5 }, // cheapest video option
+    note: "multi-shot, motion transfer, 3-15s. Cheapest video. Audio ('sound:on') adds cost.",
   },
-  diagram: {
-    mcpModelId: "nano_banana_pro",
-    maxAspect: "21:9",
-    approxCredits: "2 @ 2k, 21:9",
-    note: "Nano Banana Pro — text/diagram rendering, 4k; better for labeled scenes (4,7,8,9); ~2x cost",
+  "Veo 3.1": {
+    mcpModelId: "veo3_1",
+    aspects: ["16:9", "9:16"],
+    cost: { "8s/basic/fast": 22 },
+    note: "top-tier cinematic, 4/6/8s. quality basic/high/ultra raises cost.",
+  },
+  "Cinema Studio": {
+    mcpModelId: "cinematic_studio_3_0",
+    aspects: ["auto", "21:9", "16:9", "4:3", "1:1", "3:4", "9:16"],
+    cost: { "720p/5s": 25 },
+    note: "cinema-grade video, genre hints, up to 4k.",
+  },
+  DoP: {
+    mcpModelId: null,
+    aspects: ["21:9", "16:9"],
+    cost: {},
+    note: "no direct MCP model — substitute Cinema Studio (cinematic_studio_3_0), the camera-aware model.",
   },
 };

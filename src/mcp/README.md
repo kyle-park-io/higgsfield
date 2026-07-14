@@ -1,7 +1,8 @@
 # MCP generation path (agent-driven) — active path
 
 Generation runs through the **Higgsfield MCP** (`https://mcp.higgsfield.ai/mcp`, OAuth). This path
-is **driven by the agent (Claude) in-session — there is no CLI script.** Claude reads a scene's
+is **driven by the agent (Claude) in-session — there is no CLI generation script** (a read-only
+`pnpm models` report over the catalog does exist). Claude reads a scene's
 prompt from [`../core/scenes.ts`](../core/scenes.ts) and calls the MCP `generate_*` tools with the
 model id from [`model-map.ts`](./model-map.ts).
 
@@ -30,4 +31,27 @@ at 16:9.
 - **Media:** `media_upload`, `media_import_url`
 - **Workflows:** `get_workflow_instructions` (catalog includes an `explainer_video` workflow — directly relevant to this project)
 
-See [`model-map.ts`](./model-map.ts) for the scene-model → MCP-model-id mapping.
+## Models & costs (snapshot 2026-07-15)
+
+Full data + native aspect ratios live in [`model-map.ts`](./model-map.ts); print it with `pnpm models`.
+Costs are MCP `get_cost` snapshots (re-check before a real run). Aspect ratio does **not** affect cost.
+
+**Keyframes (image):**
+
+| model | cost | note |
+|---|---|---|
+| `nano_banana_pro` ⭐ | 1k/2k = 2cr · 4k = 4cr | best detail + text/diagrams, 21:9 — project default |
+| `soul_cinematic` | ~0.12cr (1.5k/2k) | filmic mood, 21:9; sparse on dense particle fields |
+| `soul_2` | ~0.12cr | UGC/portrait, 16:9 max; weak on abstract/text |
+
+**Video (per clip):**
+
+| model | cost | note |
+|---|---|---|
+| `kling3_0` | 7.5cr (5s, silent) | cheapest video |
+| `veo3_1` | 22cr (8s, basic) | top-tier cinematic |
+| `seedance_2_0` | 22.5cr (720p/5s) → 45cr (1080p) | our primary; 21:9 |
+| `cinematic_studio_3_0` | 25cr (720p/5s) | Cinema Studio; also the `DoP` substitute |
+
+> 9 scenes × video is expensive relative to Free (~10 credits). Video needs a credit top-up /
+> upgrade / trial. Keyframes are cheap (≤ 2cr each).
