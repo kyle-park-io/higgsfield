@@ -1,13 +1,14 @@
 # Scene 1 — 흩어진 거래들이 모인다
 
-- **Layer:** molecule (amber)
+- **Layer:** molecule (Bitcoin gold/amber)
 - **Camera:** Dolly In
-- **Model:** Seedance 2.0 (A) / Kling 3.0 (B)
-- **Format:** 16:9 · 24fps · 15s
+- **Keyframe model:** nano_banana_pro
+- **Video model:** Seedance 2.0 (A) / Kling 3.0 (B)
+- **Format:** 21:9 keyframe · 24fps · 15s clip
 - **Status:** keyframe
 
 ## Keyframe prompt
-Abstract dark cosmic void filled with dozens of small glowing spherical plasma orbs of varying sizes drifting in volumetric fog, cool cyan-white bioluminescence with faint radiating light filaments; among the cyan orbs, one single larger warm-gold orb stands out — a glowing golden Bitcoin token marked with the ₿ symbol, representing the coinbase transaction; scientific particle-simulation aesthetic, cinematic, ultra detailed; no text, no numbers, no UI panels, no Ethereum, no diamond or octahedron gem, no other cryptocurrency logos
+Abstract dark cosmic void filled with dozens of small glowing spherical plasma orbs of varying sizes drifting in volumetric fog, cool cyan-white bioluminescence with faint radiating light filaments; among the cyan orbs, one single larger orb glowing in warm Bitcoin-orange gold (hex #F7931A) stands out — a golden Bitcoin token marked with the ₿ symbol, representing the coinbase transaction; scientific particle-simulation aesthetic, cinematic, ultra detailed; no text, no numbers, no UI panels, no Ethereum, no diamond or octahedron gem, no other cryptocurrency logos
 
 ## Motion (video) prompt
 0–5s: scattered cyan transaction particles drift in dark void. 5–11s: particles are pulled inward and aggregate into one large translucent amber molecular block; the gold coinbase particle enters first and settles at the core. 11–15s: block completes with a soft pulsing glow. Particle-aggregation VFX, volumetric light.

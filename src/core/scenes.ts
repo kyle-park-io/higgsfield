@@ -2,24 +2,24 @@ import type { Scene } from "./types.ts";
 
 /** Project-wide constants fixed across all 9 scenes (from the production guide). */
 export const production = {
-  aspectRatio: "16:9", // Soul keyframe native ratio; video uses each model's own native ratio — no cropping
+  aspectRatio: "21:9", // keyframe native ratio (nano_banana_pro / Soul); video uses each model's own native ratio — no cropping
   fps: 24,
   clipSeconds: 15, // legacy default/max; per-scene target is Scene.durationSeconds (Korean-VO paced)
-  keyframeModel: "soul_cinematic", // best Soul-family fit (21:9 cinema); cheap on Free — see src/mcp/model-map.ts
+  keyframeModel: "nano_banana_pro", // best for labeled/diagram scenes (text-rendering); soul_cinematic = mood/cheap alt — see src/mcp/model-map.ts
   styleTags:
     "dark cosmic void, bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic",
-  /** Fixed palette (Soul HEX / Moodboard) reused on every keyframe. */
+  /** Fixed palette reused on every keyframe. "Gold" is anchored to Bitcoin orange #F7931A (brand color). */
   palette: {
     background: "deep black to dark navy void, volumetric fog",
     transactionAtom: "cool cyan-white glowing particles",
-    block: "amber/gold translucent shell",
-    coinbase: "extra-bright gold, distinct geometry",
+    block: "Bitcoin-orange gold (#F7931A) amber translucent shell",
+    coinbase: "extra-bright Bitcoin-orange gold (#F7931A), distinct geometry",
     valid: "green-white (TRUE particles)",
     invalid: "red",
     scriptQuark: "violet/magenta energy",
   },
-  /** Dominant color per scale layer — shifts as the zoom descends. */
-  layerColor: { molecule: "amber", atom: "cyan", quark: "violet" },
+  /** Dominant color per scale layer — shifts as the zoom descends (molecule gold anchors Bitcoin). */
+  layerColor: { molecule: "Bitcoin gold/amber", atom: "cyan", quark: "violet" },
 } as const;
 
 /**
@@ -34,7 +34,7 @@ export const scenes: Scene[] = [
     layer: "molecule",
     durationSeconds: 15, // narration ~13s
     keyframePrompt:
-      "Abstract dark cosmic void filled with dozens of small glowing spherical plasma orbs of varying sizes drifting in volumetric fog, cool cyan-white bioluminescence with faint radiating light filaments; among the cyan orbs, one single larger warm-gold orb stands out — a glowing golden Bitcoin token marked with the ₿ symbol, representing the coinbase transaction; scientific particle-simulation aesthetic, cinematic, ultra detailed; no text, no numbers, no UI panels, no Ethereum, no diamond or octahedron gem, no other cryptocurrency logos",
+      "Abstract dark cosmic void filled with dozens of small glowing spherical plasma orbs of varying sizes drifting in volumetric fog, cool cyan-white bioluminescence with faint radiating light filaments; among the cyan orbs, one single larger orb glowing in warm Bitcoin-orange gold (hex #F7931A) stands out — a golden Bitcoin token marked with the ₿ symbol, representing the coinbase transaction; scientific particle-simulation aesthetic, cinematic, ultra detailed; no text, no numbers, no UI panels, no Ethereum, no diamond or octahedron gem, no other cryptocurrency logos",
     motionPrompt:
       "0–5s: scattered cyan transaction particles drift in dark void. 5–11s: particles are pulled inward and aggregate into one large translucent amber molecular block; the gold coinbase particle enters first and settles at the core. 11–15s: block completes with a soft pulsing glow. Particle-aggregation VFX, volumetric light.",
     camera: ["Dolly In"],
@@ -49,11 +49,11 @@ export const scenes: Scene[] = [
     layer: "molecule",
     durationSeconds: 15, // narration ~13s
     keyframePrompt:
-      "A completed amber molecular block with a glowing crystalline block-header nucleus at its center, a beam of light extending from the nucleus toward a previous block, a chain of linked blocks receding into dark space",
+      "A completed Bitcoin-gold amber molecular block (warm orange-gold, hex #F7931A) with a glowing crystalline block-header nucleus at its center, a beam of light extending from the nucleus toward a previous block, a chain of linked amber-gold blocks receding into dark space",
     motionPrompt:
       "0–5s: the block-header nucleus ignites and emits a light beam linking to the previous block. 5–11s: camera pulls back revealing a long molecular chain of linked blocks. 11–15s: one middle block is tampered — all subsequent bonds flash red and tremble. Volumetric light, energy VFX.",
     camera: ["Dolly Out", "Crash Zoom In"],
-    models: { primary: "Seedance 2.0", alt: "DoP" },
+    models: { primary: "Seedance 2.0", alt: "Cinema Studio" },
     narration:
       "블록은 독립적으로 떠 있지 않는다. 각 블록은 이전 블록을 가리키며 순서 있는 기록을 만든다. 과거의 한 블록을 바꾸려면, 그 이후의 연결도 함께 다시 만들어야 한다.",
     status: "keyframe",
@@ -64,11 +64,11 @@ export const scenes: Scene[] = [
     layer: "molecule",
     durationSeconds: 15, // narration ~12s
     keyframePrompt:
-      "A glowing amber block molecule passing before multiple identical node-scanner devices arranged around it in a dark lab-like void, each scanner projecting a thin scanning grid onto the block",
+      "A glowing Bitcoin-gold amber block molecule (warm orange-gold, hex #F7931A) passing before multiple identical node-scanner devices arranged around it in a dark lab-like void, each scanner projecting a thin scanning grid onto the block",
     motionPrompt:
       "0–6s: the block molecule passes between multiple node scanners; each scanner sequentially highlights header, transaction bundle, referenced previous outputs, script results. 6–12s: a valid block glows green across all nodes simultaneously. 12–15s: an invalid block is bounced out in red by every node at once.",
     camera: ["Static"],
-    models: { primary: "Seedance 2.0", alt: "DoP" },
+    models: { primary: "Seedance 2.0", alt: "Cinema Studio" },
     narration:
       "비트코인에는 하나의 중앙 검사자가 없다. 각 풀노드는 블록과 트랜잭션을 스스로 검증한다. 같은 규칙을 실행한 노드들이 같은 유효한 기록을 선택한다.",
     status: "keyframe",
@@ -83,7 +83,7 @@ export const scenes: Scene[] = [
     motionPrompt:
       "0–4s: crash zoom from the block surface into a single transaction atom. 4–9s: the atom rotates and its shells separate into labeled orbits — nucleus (version, locktime), left electrons (inputs), right electrons (outputs). 9–12s: gentle orbital rotation as labels settle.",
     camera: ["Crash Zoom In", "360 Orbit"],
-    models: { primary: "DoP", alt: "Seedance 2.0" },
+    models: { primary: "Cinema Studio", alt: "Seedance 2.0" },
     narration:
       "트랜잭션은 단순한 송금 메시지가 아니다. 이전 출력을 가리키는 입력과, 앞으로 사용될 새로운 출력을 만드는 구조체다.",
     status: "keyframe",

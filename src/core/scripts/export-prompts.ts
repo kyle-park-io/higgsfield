@@ -14,8 +14,9 @@ for (const s of scenes) {
 
 - **Layer:** ${s.layer} (${production.layerColor[s.layer]})
 - **Camera:** ${s.camera.join(" → ")}
-- **Model:** ${s.models.primary} (A) / ${s.models.alt} (B)
-- **Format:** ${production.aspectRatio} · ${production.fps}fps · ${production.clipSeconds}s
+- **Keyframe model:** ${production.keyframeModel}
+- **Video model:** ${s.models.primary} (A) / ${s.models.alt} (B)
+- **Format:** ${production.aspectRatio} keyframe · ${production.fps}fps · ${s.durationSeconds}s clip
 - **Status:** ${s.status}
 
 ## Keyframe prompt

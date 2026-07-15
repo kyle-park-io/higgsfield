@@ -1,13 +1,14 @@
 # Scene 2 — 블록이 사슬이 된다
 
-- **Layer:** molecule (amber)
+- **Layer:** molecule (Bitcoin gold/amber)
 - **Camera:** Dolly Out → Crash Zoom In
-- **Model:** Seedance 2.0 (A) / DoP (B)
-- **Format:** 16:9 · 24fps · 15s
+- **Keyframe model:** nano_banana_pro
+- **Video model:** Seedance 2.0 (A) / Cinema Studio (B)
+- **Format:** 21:9 keyframe · 24fps · 15s clip
 - **Status:** keyframe
 
 ## Keyframe prompt
-A completed amber molecular block with a glowing crystalline block-header nucleus at its center, a beam of light extending from the nucleus toward a previous block, a chain of linked blocks receding into dark space
+A completed Bitcoin-gold amber molecular block (warm orange-gold, hex #F7931A) with a glowing crystalline block-header nucleus at its center, a beam of light extending from the nucleus toward a previous block, a chain of linked amber-gold blocks receding into dark space
 
 ## Motion (video) prompt
 0–5s: the block-header nucleus ignites and emits a light beam linking to the previous block. 5–11s: camera pulls back revealing a long molecular chain of linked blocks. 11–15s: one middle block is tampered — all subsequent bonds flash red and tremble. Volumetric light, energy VFX.

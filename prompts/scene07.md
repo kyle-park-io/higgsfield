@@ -2,8 +2,9 @@
 
 - **Layer:** quark (violet)
 - **Camera:** Crash Zoom In → Eyes In
-- **Model:** Cinema Studio (A) / Seedance 2.0 (B)
-- **Format:** 16:9 · 24fps · 15s
+- **Keyframe model:** nano_banana_pro
+- **Video model:** Cinema Studio (A) / Seedance 2.0 (B)
+- **Format:** 21:9 keyframe · 24fps · 15s clip
 - **Status:** keyframe
 
 ## Keyframe prompt
