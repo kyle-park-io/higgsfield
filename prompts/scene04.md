@@ -8,7 +8,7 @@
 - **Status:** keyframe
 
 ## Keyframe prompt
-Extreme close-up inside a block molecule; a single glowing transaction atom at center, its structure separated into orbital shells — central nucleus labeled "version / locktime", left orbit "inputs (prev txid, vout, sequence, scriptSig/witness)", right orbit "outputs (amount, scriptPubKey)"; clean atomic diagram, cyan glow
+A single glowing cyan transaction atom at center, its structure separated into orbital shells — central nucleus labeled "version / locktime", left orbit "inputs (prev txid, vout, sequence, scriptSig/witness)", right orbit "outputs (amount, scriptPubKey)"; framing it, faint out-of-focus translucent Bitcoin-gold bonded atom-spheres of the parent block-molecule (warm orange-gold #F7931A) at the edges, as if we just crash-zoomed through the gold block surface into one of its transaction atoms; clean atomic diagram, dark cosmic void, cinematic, ultra detailed, legible small text labels
 
 ## Motion (video) prompt
 0–4s: crash zoom from the block surface into a single transaction atom. 4–9s: the atom rotates and its shells separate into labeled orbits — nucleus (version, locktime), left electrons (inputs), right electrons (outputs). 9–12s: gentle orbital rotation as labels settle.

@@ -8,7 +8,7 @@
 - **Status:** keyframe
 
 ## Keyframe prompt
-A glowing Bitcoin-gold block rendered as a clear molecule (warm orange-gold, hex #F7931A) — a cluster of many small translucent transaction atom-spheres bonded together by energy bonds, a ₿ symbol on it — passing before several identical glowing holographic validator nodes (server/computer-like verification units, NOT cameras) arranged around it, each independently running the same ruleset and casting a thin verification scan-grid onto the molecule; a valid block glows green across all nodes, an invalid one flashes red; dark lab-like void; no cameras, no camcorders, no lenses, no Ethereum, no other cryptocurrency logos
+A glowing Bitcoin-gold block rendered as a clear molecule (warm orange-gold, hex #F7931A) — a cluster of many small translucent transaction atom-spheres bonded together by energy bonds, a ₿ symbol on it — floating in a dark cosmic void; several identical glowing holographic validator nodes (floating luminous verification units / ring-scanners, NOT physical servers, computers, monitors, or cameras) surround it, each independently running the same ruleset and casting a thin green verification scan-grid onto the molecule; a valid block glows green across all nodes, an invalid one flashes red; starfield background; no physical room or lab, no server racks, no monitors, no cameras, no Ethereum, no other cryptocurrency logos
 
 ## Motion (video) prompt
 0–6s: the block molecule passes between multiple node scanners; each scanner sequentially highlights header, transaction bundle, referenced previous outputs, script results. 6–12s: a valid block glows green across all nodes simultaneously. 12–15s: an invalid block is bounced out in red by every node at once.
