@@ -49,7 +49,7 @@ export const scenes: Scene[] = [
     layer: "molecule",
     durationSeconds: 15, // narration ~13s
     keyframePrompt:
-      "A completed Bitcoin-gold amber molecular block (warm orange-gold, hex #F7931A) with a glowing crystalline block-header nucleus at its center, a beam of light extending from the nucleus toward a previous block, a chain of linked amber-gold blocks receding into dark space; the ₿ Bitcoin symbol only — no Ethereum, no other cryptocurrency logos, no diamond or octahedron gem",
+      "Several completed Bitcoin-gold block-molecules (warm orange-gold, hex #F7931A), each a cluster of small glowing transaction atom-spheres bonded together by visible energy bonds, linked head-to-tail into a chain; a glowing crystalline block-header core inside each, a beam of light from one block's header pointing back to the previous block; the molecular chain recedes into dark cosmic space, ₿ symbols; the ₿ Bitcoin symbol only — no Ethereum, no other cryptocurrency logos, no diamond or octahedron gem, no flat honeycomb hexagon lattice",
     motionPrompt:
       "0–5s: the block-header nucleus ignites and emits a light beam linking to the previous block. 5–11s: camera pulls back revealing a long molecular chain of linked blocks. 11–15s: one middle block is tampered — all subsequent bonds flash red and tremble. Volumetric light, energy VFX.",
     camera: ["Dolly Out", "Crash Zoom In"],
@@ -64,7 +64,7 @@ export const scenes: Scene[] = [
     layer: "molecule",
     durationSeconds: 15, // narration ~12s
     keyframePrompt:
-      "A glowing Bitcoin-gold amber block molecule (warm orange-gold, hex #F7931A) passing before multiple identical node-scanner devices arranged around it in a dark lab-like void, each scanner projecting a thin scanning grid onto the block",
+      "A glowing Bitcoin-gold block rendered as a clear molecule (warm orange-gold, hex #F7931A) — a cluster of many small translucent transaction atom-spheres bonded together by energy bonds, a ₿ symbol on it — passing before several identical glowing holographic validator nodes (server/computer-like verification units, NOT cameras) arranged around it, each independently running the same ruleset and casting a thin verification scan-grid onto the molecule; a valid block glows green across all nodes, an invalid one flashes red; dark lab-like void; no cameras, no camcorders, no lenses, no Ethereum, no other cryptocurrency logos",
     motionPrompt:
       "0–6s: the block molecule passes between multiple node scanners; each scanner sequentially highlights header, transaction bundle, referenced previous outputs, script results. 6–12s: a valid block glows green across all nodes simultaneously. 12–15s: an invalid block is bounced out in red by every node at once.",
     camera: ["Static"],

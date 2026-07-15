@@ -8,7 +8,7 @@
 - **Status:** keyframe
 
 ## Keyframe prompt
-A completed Bitcoin-gold amber molecular block (warm orange-gold, hex #F7931A) with a glowing crystalline block-header nucleus at its center, a beam of light extending from the nucleus toward a previous block, a chain of linked amber-gold blocks receding into dark space; the ₿ Bitcoin symbol only — no Ethereum, no other cryptocurrency logos, no diamond or octahedron gem
+Several completed Bitcoin-gold block-molecules (warm orange-gold, hex #F7931A), each a cluster of small glowing transaction atom-spheres bonded together by visible energy bonds, linked head-to-tail into a chain; a glowing crystalline block-header core inside each, a beam of light from one block's header pointing back to the previous block; the molecular chain recedes into dark cosmic space, ₿ symbols; the ₿ Bitcoin symbol only — no Ethereum, no other cryptocurrency logos, no diamond or octahedron gem, no flat honeycomb hexagon lattice
 
 ## Motion (video) prompt
 0–5s: the block-header nucleus ignites and emits a light beam linking to the previous block. 5–11s: camera pulls back revealing a long molecular chain of linked blocks. 11–15s: one middle block is tampered — all subsequent bonds flash red and tremble. Volumetric light, energy VFX.
