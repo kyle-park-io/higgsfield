@@ -28,16 +28,16 @@ for (const [model, info] of Object.entries(modelPlans)) {
   );
 }
 
-console.log("\nPer scene — plan needed for keyframe (Soul) + primary video model");
+console.log("\nPer scene — plan needed for keyframe (Nano Banana 2) + primary video model");
 console.log("-".repeat(92));
-const soulPlan = modelPlans["Soul 2.0"].minPlan;
-let projectPlan: PlanTier = soulPlan;
+const keyframePlan = modelPlans["Nano Banana 2"].minPlan;
+let projectPlan: PlanTier = keyframePlan;
 for (const s of scenes) {
   const primaryPlan = modelPlans[s.models.primary].minPlan;
-  const scenePlan = higherPlan(soulPlan, primaryPlan);
+  const scenePlan = higherPlan(keyframePlan, primaryPlan);
   projectPlan = higherPlan(projectPlan, scenePlan);
   console.log(
-    `  ${pad("#" + s.id, 5)} ${pad("Soul 2.0 + " + s.models.primary, 30)} → ${up(scenePlan)}`,
+    `  ${pad("#" + s.id, 5)} ${pad("Nano Banana 2 + " + s.models.primary, 30)} → ${up(scenePlan)}`,
   );
 }
 

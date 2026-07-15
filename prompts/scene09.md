@@ -2,7 +2,7 @@
 
 - **Layer:** quark (violet)
 - **Camera:** Super Dolly Out
-- **Keyframe model:** nano_banana_pro
+- **Keyframe model:** nano_banana_2
 - **Video model:** Seedance 2.0 (A) / Kling 3.0 (B)
 - **Format:** 21:9 keyframe · 24fps · 15s clip
 - **Status:** keyframe

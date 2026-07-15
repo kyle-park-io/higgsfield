@@ -8,7 +8,7 @@ import type { VideoModel } from "./types.ts";
  * live pricing page, the in-app model picker (locked models show a lock icon),
  * and, once the MCP is authenticated, which tools/models it actually exposes.
  */
-export const PLANS_AS_OF = "2026-07-15";
+export const PLANS_AS_OF = "2026-07-16"; // Starter/Plus credits verified live via MCP show_plans_and_credits + balance
 
 export const PLANS_SOURCES = [
   "https://higgsfield.ai/pricing",
@@ -55,14 +55,14 @@ export const plans: PlanInfo[] = [
     tier: "starter",
     label: "Starter",
     priceMonthlyUsd: 15,
-    monthlyCredits: "200/mo",
+    monthlyCredits: "270/mo",
     note: "Selected models. Seedance 2.0 *Fast* only (not full). Unlimited Soul V2 & Cinema.",
   },
   {
     tier: "plus",
     label: "Plus",
-    priceMonthlyUsd: 39, // annual; ~$49 month-to-month
-    monthlyCredits: "1,000/mo",
+    priceMonthlyUsd: 49, // month-to-month; annual ~$26 (live 2026-07-16)
+    monthlyCredits: "~1,200/mo (card lists 1,000; observed grant = 1,200)",
     note: "ALL models — full Seedance 2.0 and Veo 3.1 unlock here. 5,000 free Soul/Cinema gens.",
   },
   {
@@ -83,8 +83,8 @@ export const plans: PlanInfo[] = [
 
 export type Confidence = "high" | "medium" | "low";
 
-/** The keyframe (Soul) model plus every VideoModel referenced by scenes. */
-export type ProjectModel = VideoModel | "Soul 2.0";
+/** The keyframe model plus every VideoModel referenced by scenes. */
+export type ProjectModel = VideoModel | "Nano Banana 2";
 
 export interface ModelPlanInfo {
   /** Minimum plan able to call this model at the quality this project uses. */
@@ -97,11 +97,11 @@ export interface ModelPlanInfo {
 }
 
 export const modelPlans: Record<ProjectModel, ModelPlanInfo> = {
-  "Soul 2.0": {
-    minPlan: "starter",
-    approxCredits: "unlimited on Starter+ (~$0.009 / 1K image)",
-    confidence: "medium",
-    note: "Keyframe stills. 365-day unlimited on Starter+; free tier may allow limited watermarked use.",
+  "Nano Banana 2": {
+    minPlan: "plus",
+    approxCredits: "~2cr / 2k image (4k=4cr)",
+    confidence: "high",
+    note: "Keyframe model — what `nano_banana_pro` resolves to via MCP. Plus+ only. soul_cinematic (~0.12cr) is the cheap Soul-family alt.",
   },
   "Cinema Studio": {
     minPlan: "starter",
@@ -113,7 +113,7 @@ export const modelPlans: Record<ProjectModel, ModelPlanInfo> = {
     minPlan: "starter",
     approxCredits: "Lite 3 / Turbo 5 / Standard 7 credits per 3s @720p",
     confidence: "medium",
-    note: "DoP Lite runs even on free credits; Turbo/Standard are the paid, higher-quality variants.",
+    note: "DEPRECATED — no real MCP model; scenes now use Cinema Studio. Kept only because VideoModel still lists DoP.",
   },
   "Kling 3.0": {
     minPlan: "starter",

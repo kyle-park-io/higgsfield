@@ -32,17 +32,23 @@ export interface ModelInfo {
 /* ── Keyframe (image) models ─────────────────────────────────────────────── */
 
 export const keyframeModels: Record<string, ModelInfo> = {
+  nano_banana_2: {
+    mcpModelId: "nano_banana_2",
+    aspects: ["1:1", "3:2", "2:3", "4:3", "3:4", "4:5", "5:4", "9:16", "16:9", "21:9"],
+    cost: { "1k": 2, "2k": 2, "4k": 4 },
+    note: "⭐ EFFECTIVE keyframe model — MCP generate_image resolves `nano_banana_pro` to this (server alias, confirmed twice). Great detail + ₿/text at 21:9. Used for the keyframes. 1k=2k=2cr (use 2k); 4k=4cr.",
+  },
   nano_banana_pro: {
     mcpModelId: "nano_banana_pro",
     aspects: ["1:1", "3:2", "2:3", "4:3", "3:4", "4:5", "5:4", "9:16", "16:9", "21:9"],
     cost: { "1k": 2, "2k": 2, "4k": 4 },
-    note: "⭐ best overall here — detail + text/diagrams, 21:9. Best Scene 1 result. 1k=2k=2cr (use 2k); 4k=4cr.",
+    note: "Nominal 'ultimate quality, text/diagrams' — but MCP generate_image ALIASES this to nano_banana_2 (you cannot call pro directly here). Request nano_banana_2 instead. 1k=2k=2cr; 4k=4cr.",
   },
   soul_cinematic: {
     mcpModelId: "soul_cinematic",
     aspects: ["1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3", "21:9"],
     cost: { "1.5k": 0.12, "2k": 0.12 },
-    note: "Soul Cinema — cinema stills/concept art, 21:9. Filmic; renders short text labels legibly (unlike soul_2). Sparse on dense many-particle scenes (Scene 1). ~free. Used for all 9 keyframes.",
+    note: "Soul Cinema — cinema stills/concept art, 21:9. Filmic; renders short text labels legibly (unlike soul_2). Sparse on dense many-particle scenes (Scene 1). ~free. Used for the 1st keyframe pass (superseded by nano_banana_2).",
   },
   soul_2: {
     mcpModelId: "soul_2",
@@ -54,7 +60,7 @@ export const keyframeModels: Record<string, ModelInfo> = {
 
 /** Recommended keyframe model per use. */
 export const keyframeChoice = {
-  default: "nano_banana_pro", // best for this project's content (abstract + labeled scenes)
+  default: "nano_banana_2", // nano_banana_pro aliases to this via MCP; best for abstract + labeled scenes
   mood: "soul_cinematic", // pure establishing / atmosphere shots
   cheap: "soul_2", // ~free when quality doesn't matter
 } as const;

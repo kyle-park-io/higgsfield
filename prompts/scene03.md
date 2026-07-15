@@ -2,7 +2,7 @@
 
 - **Layer:** molecule (Bitcoin gold/amber)
 - **Camera:** Static
-- **Keyframe model:** nano_banana_pro
+- **Keyframe model:** nano_banana_2
 - **Video model:** Seedance 2.0 (A) / Cinema Studio (B)
 - **Format:** 21:9 keyframe · 24fps · 15s clip
 - **Status:** keyframe
