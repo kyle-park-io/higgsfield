@@ -6,6 +6,15 @@ export const production = {
   fps: 24,
   clipSeconds: 15, // legacy default/max; per-scene target is Scene.durationSeconds (Korean-VO paced)
   keyframeModel: "nano_banana_2", // request id for keyframes (ran as backend engine nano_banana_flash — echoed model ≠ requested id); soul_cinematic = mood/cheap alt — see src/mcp/model-map.ts
+  /** Korean voiceover — narration text lives in each Scene.narration; generate via generate_audio. */
+  voiceover: {
+    model: "text2speech_v2",
+    engine: "elevenlabs", // natural Korean; minimax is the close runner-up
+    voice: "Brooks",
+    voiceId: "c2acff45-84b2-4974-892d-89fa2d4e5598",
+    gender: "male",
+    language: "ko",
+  },
   styleTags:
     "one continuous dark cosmic void (never a physical room or laboratory — no benches, monitors, or furniture), bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic",
   /** Fixed palette reused on every keyframe. "Gold" is anchored to Bitcoin orange #F7931A (brand color). */
