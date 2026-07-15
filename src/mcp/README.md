@@ -35,7 +35,11 @@ at 16:9.
 
 ## Models & costs (snapshot 2026-07-15)
 
-Full data + native aspect ratios live in [`model-map.ts`](./model-map.ts); print it with `pnpm models`.
+Two references, both printed by `pnpm models`:
+- [`model-map.ts`](./model-map.ts) — the **curated subset** the 9 scenes actually use (below).
+- [`catalog.ts`](./catalog.ts) — the **complete** Higgsfield roster (every image + video model)
+  with measured costs, listed cheapest-first.
+
 Costs are MCP `get_cost` snapshots (re-check before a real run). Aspect ratio does **not** affect cost.
 
 **Keyframes (image):**
@@ -50,10 +54,14 @@ Costs are MCP `get_cost` snapshots (re-check before a real run). Aspect ratio do
 
 | model | cost | duration | note |
 |---|---|---|---|
-| `kling3_0` | 7.5cr (5s, silent) | 3–15s | cheapest video |
+| `kling3_0` | 7.5cr (5s, silent) | 3–15s | our alt; multi-shot |
 | `veo3_1` | 22cr (8s, basic) | 4/6/8s (max 8) | top-tier; under the scenes' 15s |
 | `seedance_2_0` | 22.5cr (720p/5s) → 45cr (1080p) | 4–15s | our primary; 21:9 |
 | `cinematic_studio_3_0` | 25cr (720p/5s) | 4–15s | Cinema Studio; also the `DoP` substitute |
+
+**Cheapest generators (measured — for tight credits):** video → `seedance1_5` 4.8cr ·
+`cinematic_studio_video`/`kling2_6` 5cr · `minimax_hailuo` 6cr · `veo3_1_lite` 8cr (budget Veo);
+image → `z_image` 0.15cr · Soul family 0.12cr · `kling_omni_image` 0.5cr. Full list: `pnpm models`.
 
 **Camera moves are prompt-driven** — video models take `prompt + start_image` only (no camera-preset
 param), and `presets_show` returns viral/character templates, not the app's Camera Controls. So weave a

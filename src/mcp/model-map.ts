@@ -11,6 +11,9 @@ import type { VideoModel } from "../core/types.ts";
  * Costs are agent-queried (MCP tools can't run from a standalone script), so they are
  * snapshotted here. Run `pnpm models` to print this, and re-check with `get_cost`
  * before a real run. We always use each model's **native** aspect ratio — never crop.
+ *
+ * This file is the CURATED subset the scenes actually use. For the COMPLETE Higgsfield
+ * roster (every image + video model) with measured costs, see ./catalog.ts.
  */
 export const CATALOG_AS_OF = "2026-07-15";
 
@@ -83,9 +86,9 @@ export const videoModelMap: Record<VideoModel, ModelInfo> = {
   "Kling 3.0": {
     mcpModelId: "kling3_0",
     aspects: ["16:9", "9:16", "1:1"],
-    cost: { "5s/std/silent": 7.5 }, // cheapest video option
+    cost: { "5s/std/silent": 7.5 }, // silent baseline
     durations: "3–15s",
-    note: "multi-shot, motion transfer. Cheapest video. Audio ('sound:on') adds cost.",
+    note: "multi-shot, motion transfer. NOT the cheapest — seedance1_5 (4.8cr), cinematic_studio_video / kling2_6 (5cr) are cheaper (see catalog.ts). Audio ('sound:on') adds cost.",
   },
   "Veo 3.1": {
     mcpModelId: "veo3_1",
