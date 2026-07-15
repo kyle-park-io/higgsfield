@@ -38,6 +38,8 @@ export interface Scene {
   keyframePrompt: string;
   /** Motion (image-to-video) prompt — English, split into time segments. */
   motionPrompt: string;
+  /** Target clip length in seconds — Korean-VO paced; video models cap at 15s (Seedance/Kling/Cinema). */
+  durationSeconds: number;
   /** Camera presets to apply, in order (transition preset first). */
   camera: CameraPreset[];
   /** Preferred model (A) and comparison model (B) for A/B testing. */

@@ -4,7 +4,7 @@ import type { Scene } from "./types.ts";
 export const production = {
   aspectRatio: "16:9", // Soul keyframe native ratio; video uses each model's own native ratio — no cropping
   fps: 24,
-  clipSeconds: 15,
+  clipSeconds: 15, // legacy default/max; per-scene target is Scene.durationSeconds (Korean-VO paced)
   keyframeModel: "soul_cinematic", // best Soul-family fit (21:9 cinema); cheap on Free — see src/mcp/model-map.ts
   styleTags:
     "dark cosmic void, bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic",
@@ -32,6 +32,7 @@ export const scenes: Scene[] = [
     id: 1,
     title: "흩어진 거래들이 모인다",
     layer: "molecule",
+    durationSeconds: 15, // narration ~13s
     keyframePrompt:
       "Abstract dark cosmic void filled with dozens of small glowing spherical plasma orbs of varying sizes drifting in volumetric fog, cool cyan-white bioluminescence with faint radiating light filaments; among the cyan orbs, one single larger warm-gold orb stands out — a glowing golden Bitcoin token marked with the ₿ symbol, representing the coinbase transaction; scientific particle-simulation aesthetic, cinematic, ultra detailed; no text, no numbers, no UI panels, no Ethereum, no diamond or octahedron gem, no other cryptocurrency logos",
     motionPrompt:
@@ -46,6 +47,7 @@ export const scenes: Scene[] = [
     id: 2,
     title: "블록이 사슬이 된다",
     layer: "molecule",
+    durationSeconds: 15, // narration ~13s
     keyframePrompt:
       "A completed amber molecular block with a glowing crystalline block-header nucleus at its center, a beam of light extending from the nucleus toward a previous block, a chain of linked blocks receding into dark space",
     motionPrompt:
@@ -60,6 +62,7 @@ export const scenes: Scene[] = [
     id: 3,
     title: "노드는 모든 결합을 다시 본다",
     layer: "molecule",
+    durationSeconds: 15, // narration ~12s
     keyframePrompt:
       "A glowing amber block molecule passing before multiple identical node-scanner devices arranged around it in a dark lab-like void, each scanner projecting a thin scanning grid onto the block",
     motionPrompt:
@@ -74,10 +77,11 @@ export const scenes: Scene[] = [
     id: 4,
     title: "트랜잭션의 구조 (해부) — 분자→원자 전환",
     layer: "atom",
+    durationSeconds: 12, // narration ~9s
     keyframePrompt:
       'Extreme close-up inside a block molecule; a single glowing transaction atom at center, its structure separated into orbital shells — central nucleus labeled "version / locktime", left orbit "inputs (prev txid, vout, sequence, scriptSig/witness)", right orbit "outputs (amount, scriptPubKey)"; clean atomic diagram, cyan glow',
     motionPrompt:
-      "0–5s: crash zoom from the block surface into a single transaction atom. 5–11s: the atom rotates and its shells separate into labeled orbits — nucleus (version, locktime), left electrons (inputs), right electrons (outputs). 11–15s: gentle orbital rotation as labels settle.",
+      "0–4s: crash zoom from the block surface into a single transaction atom. 4–9s: the atom rotates and its shells separate into labeled orbits — nucleus (version, locktime), left electrons (inputs), right electrons (outputs). 9–12s: gentle orbital rotation as labels settle.",
     camera: ["Crash Zoom In", "360 Orbit"],
     models: { primary: "DoP", alt: "Seedance 2.0" },
     narration:
@@ -88,10 +92,11 @@ export const scenes: Scene[] = [
     id: 5,
     title: "UTXO가 소비되고 생성된다",
     layer: "atom",
+    durationSeconds: 12, // narration ~10s
     keyframePrompt:
       'A bright glowing output atom labeled "UTXO A / Alice"; a reaching input arm from a new transaction pointing at it; a red "SPENT" seal forming on UTXO A; a newly crystallizing "UTXO B / Bob"; a smaller "change" UTXO returning toward Alice; dark void',
     motionPrompt:
-      "0–5s: UTXO-A (Alice) glows brightly. 5–11s: a new transaction's input reaches out and references UTXO-A; a red SPENT mark seals it; a new UTXO-B (Bob) crystallizes; a smaller change UTXO returns to Alice. 11–15s: no coin physically travels — the old output dims while new outputs glow. Slow push-in.",
+      "0–4s: UTXO-A (Alice) glows brightly. 4–9s: a new transaction's input reaches out and references UTXO-A; a red SPENT mark seals it; a new UTXO-B (Bob) crystallizes; a smaller change UTXO returns to Alice. 9–12s: no coin physically travels — the old output dims while new outputs glow. Slow push-in.",
     camera: ["Dolly In"],
     models: { primary: "Seedance 2.0", alt: "Kling 3.0" },
     narration:
@@ -102,10 +107,11 @@ export const scenes: Scene[] = [
     id: 6,
     title: "입력과 출력의 그래프",
     layer: "atom",
+    durationSeconds: 13, // narration ~11s
     keyframePrompt:
       "Several transaction atoms connected like a chemical reaction diagram; glowing arrows from one tx's outputs into the next tx's inputs, forming a branching directed graph (not a straight line); cyan bonds, dark void",
     motionPrompt:
-      "0–6s: transaction atoms connect via glowing bonds — TX0 output[1] flows into TX1 input[0], branching into output[0] and output[1]. 6–11s: the graph branches outward like molecular bonds. 11–15s: two inputs try to grab the same already-spent output; only one survives, the other collapses in red.",
+      "0–5s: transaction atoms connect via glowing bonds — TX0 output[1] flows into TX1 input[0], branching into output[0] and output[1]. 5–9s: the graph branches outward like molecular bonds. 9–13s: two inputs try to grab the same already-spent output; only one survives, the other collapses in red.",
     camera: ["Dolly Out", "Arc Left"],
     models: { primary: "Seedance 2.0", alt: "Kling 3.0" },
     narration:
@@ -116,6 +122,7 @@ export const scenes: Scene[] = [
     id: 7,
     title: "잠금과 해제 (조건) — 원자→쿼크 전환",
     layer: "quark",
+    durationSeconds: 15, // narration ~14s
     keyframePrompt:
       'Extreme macro view inside a transaction output revealing a glowing violet/magenta "scriptPubKey" binding-force lock; incoming signature particle and public-key particle from the next tx\'s input approaching an experiment chamber; floating opcode text "OP_DUP OP_HASH160 <PubKeyHash> OP_EQUALVERIFY OP_CHECKSIG"; shallow depth of field',
     motionPrompt:
@@ -130,10 +137,11 @@ export const scenes: Scene[] = [
     id: 8,
     title: "스택에서 검증하기 (충돌 실험)",
     layer: "quark",
+    durationSeconds: 13, // narration ~11s
     keyframePrompt:
       'A vertical transparent stack test-tube in a dark lab; particles labeled "Sig" and "PubKey" stacked inside; opcode operations shown as colliding particles; violet-magenta energy; a single green "TRUE" particle glowing at the top',
     motionPrompt:
-      "0–3s: a \"Sig\" particle drops into a vertical transparent stack; \"PubKey\" stacks above. 3–9s: OP_DUP duplicates the pubkey, OP_HASH160 hashes the copy, it is compared to the stored PubKeyHash, OP_EQUALVERIFY checks the match, OP_CHECKSIG verifies the signature — each shown as a sequential particle collision. 9–13s: a single green TRUE particle remains. 13–15s: a failure branch shows a red FALSE collapse.",
+      "0–3s: a \"Sig\" particle drops into a vertical transparent stack; \"PubKey\" stacks above. 3–8s: OP_DUP duplicates the pubkey, OP_HASH160 hashes the copy, it is compared to the stored PubKeyHash, OP_EQUALVERIFY checks the match, OP_CHECKSIG verifies the signature — each shown as a sequential particle collision. 8–11s: a single green TRUE particle remains. 11–13s: a failure branch shows a red FALSE collapse.",
     camera: ["Static"],
     models: { primary: "Seedance 2.0", alt: "Veo 3.1" },
     narration:
@@ -144,6 +152,7 @@ export const scenes: Scene[] = [
     id: 9,
     title: "돈의 조건과 임의 데이터 (경계)",
     layer: "quark",
+    durationSeconds: 15, // narration ~27s > 15s model cap → split into 9a/9b at generation (see guide §8)
     keyframePrompt:
       'Camera pulled back to show a whole transaction atom with multiple data surfaces glowing — "scriptPubKey", "OP_RETURN", "scriptSig", "witness", "Taproot script path", "coinbase input"; data particles approaching each surface; a translucent measuring grid labeled "BIP110" descending over all surfaces',
     motionPrompt:
