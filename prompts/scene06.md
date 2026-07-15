@@ -17,4 +17,4 @@ Several transaction atoms connected like a chemical reaction diagram; glowing ar
 트랜잭션의 연결은 단순한 계좌 이력보다 소비 가능한 출력들의 방향성 그래프에 가깝다. 하나의 출력은 유효한 체인에서 단 한 번만 소비될 수 있다.
 
 ---
-_Common style tags: dark cosmic void, bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic_
+_Common style tags: one continuous dark cosmic void (never a physical room or laboratory — no benches, monitors, or furniture), bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic_

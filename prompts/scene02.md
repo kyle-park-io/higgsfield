@@ -17,4 +17,4 @@ Several completed Bitcoin-gold block-molecules (warm orange-gold, hex #F7931A), 
 블록은 독립적으로 떠 있지 않는다. 각 블록은 이전 블록을 가리키며 순서 있는 기록을 만든다. 과거의 한 블록을 바꾸려면, 그 이후의 연결도 함께 다시 만들어야 한다.
 
 ---
-_Common style tags: dark cosmic void, bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic_
+_Common style tags: one continuous dark cosmic void (never a physical room or laboratory — no benches, monitors, or furniture), bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic_

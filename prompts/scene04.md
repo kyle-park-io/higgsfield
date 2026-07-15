@@ -17,4 +17,4 @@ Extreme close-up inside a block molecule; a single glowing transaction atom at c
 트랜잭션은 단순한 송금 메시지가 아니다. 이전 출력을 가리키는 입력과, 앞으로 사용될 새로운 출력을 만드는 구조체다.
 
 ---
-_Common style tags: dark cosmic void, bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic_
+_Common style tags: one continuous dark cosmic void (never a physical room or laboratory — no benches, monitors, or furniture), bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic_

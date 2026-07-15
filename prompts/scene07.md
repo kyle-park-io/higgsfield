@@ -17,4 +17,4 @@ Extreme macro view inside a transaction output revealing a glowing violet/magent
 출력은 단순히 소유자의 이름을 기록하지 않는다. 앞으로 이 출력을 소비하기 위해 만족해야 할 조건을 기록한다. 소비자는 다음 트랜잭션의 입력에서 그 조건을 만족하는 증명을 제시한다.
 
 ---
-_Common style tags: dark cosmic void, bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic_
+_Common style tags: one continuous dark cosmic void (never a physical room or laboratory — no benches, monitors, or furniture), bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic_
