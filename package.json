@@ -14,7 +14,8 @@
     "plan:report": "node --disable-warning=ExperimentalWarning src/core/scripts/plan-report.ts",
     "models": "node --disable-warning=ExperimentalWarning src/mcp/scripts/model-report.ts",
     "check:auth": "node --disable-warning=ExperimentalWarning --env-file=.env src/api/scripts/check-auth.ts",
-    "generate:keyframe": "node --disable-warning=ExperimentalWarning --env-file=.env src/api/scripts/generate-keyframe.ts"
+    "generate:keyframe": "node --disable-warning=ExperimentalWarning --env-file=.env src/api/scripts/generate-keyframe.ts",
+    "generate:keyframe:dry": "node --disable-warning=ExperimentalWarning --env-file=.env src/api/scripts/generate-keyframe.ts --dry-run"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",

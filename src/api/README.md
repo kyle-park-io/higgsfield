@@ -17,7 +17,31 @@ reproducible / batch generation **without an agent in the loop**.
 | Command | What it does |
 |---|---|
 | `pnpm check:auth` | Verify credentials (read-only, no credits) — `GET /v1/motions` |
-| `pnpm generate:keyframe [sceneId]` | Soul keyframe via `POST /v1/text2image/soul` (defaults to scene 1) |
+| `pnpm generate:keyframe [sceneId]` | Soul keyframe via `POST /v1/text2image/soul` (defaults to scene 1) — **spends credits** |
+| `pnpm generate:keyframe:dry [sceneId]` | Dry run — preview the request, spend nothing |
 
 Outputs save to `keyframes/sceneNN/<timestamp>.png` — **never overwritten**. Prompts come from the
 shared SSOT, [`../core/scenes.ts`](../core/scenes.ts).
+
+## Dry run (`--dry-run` / `-n`)
+
+Since this is the only code that **spends credits**, `generate:keyframe` takes a `--dry-run` flag
+(the MCP path has no such script — there, cost is checked in-session via the `get_cost: true`
+parameter). Dry run validates the scene and env, then prints the **exact request that would be
+sent** — model, size, estimated cost, credential status, save path, and the full prompt — and exits
+**without any network call or credit spend**. Use it to confirm the prompt/params are wired right
+before a real run:
+
+```
+$ pnpm generate:keyframe:dry 1
+Scene 1 "흩어진 거래들이 모인다" — DRY RUN (no API call, no credits)
+  path:   REST API (platform.higgsfield.ai)  POST /v1/text2image/soul
+  model:  Soul · quality 1080p · size 2048x1152 (16:9 native, no crop) · batch 1
+  est:    ≈0.12 cr (approx — MCP Soul snapshot; REST not separately measured)
+  creds:  HF_API_KEY ✓   HF_API_SECRET ✓
+  save:   keyframes/scene01/<timestamp>.png  (never overwrites)
+  prompt: Abstract dark cosmic void filled with dozens of small glowing…
+```
+
+The cost line is an **estimate** from the MCP-measured Soul snapshot (`../mcp/model-map.ts`), not a
+live quote — the REST balance is separate and not independently measured.
