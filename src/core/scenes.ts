@@ -7,7 +7,7 @@ export const production = {
   clipSeconds: 15, // legacy default/max; per-scene target is Scene.durationSeconds (Korean-VO paced)
   keyframeModel: "nano_banana_2", // request id for keyframes (ran as backend engine nano_banana_flash — echoed model ≠ requested id); soul_cinematic = mood/cheap alt — see src/mcp/model-map.ts
   styleTags:
-    "dark cosmic void, bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic",
+    "one continuous dark cosmic void (never a physical room or laboratory — no benches, monitors, or furniture), bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic",
   /** Fixed palette reused on every keyframe. "Gold" is anchored to Bitcoin orange #F7931A (brand color). */
   palette: {
     background: "deep black to dark navy void, volumetric fog",
@@ -94,7 +94,7 @@ export const scenes: Scene[] = [
     layer: "atom",
     durationSeconds: 12, // narration ~10s
     keyframePrompt:
-      'A bright glowing output atom labeled "UTXO A / Alice"; a reaching input arm from a new transaction pointing at it; a red "SPENT" seal forming on UTXO A; a newly crystallizing "UTXO B / Bob"; a smaller "change" UTXO returning toward Alice; dark void',
+      'An atomic-diagram scene rendered entirely as glowing cyan particles and atoms (no machinery, no robots): a bright cyan output atom labeled "UTXO A / Alice (5.0 BTC)" stamped with a red "SPENT" seal; a new transaction shown as a glowing cyan atom whose input is a luminous energy reference-link (a glowing tendril, not a mechanical arm) pointing at UTXO A; a newly forming cyan output atom "UTXO B / Bob (3.5 BTC)"; a smaller cyan "Change UTXO / Alice (1.5 BTC)" atom curving back toward Alice; the spent atom dims while the new atoms brighten — no coin physically travels; dark void; no robotic arm, no mechanical device, no syringe, no drill',
     motionPrompt:
       "0–4s: UTXO-A (Alice) glows brightly. 4–9s: a new transaction's input reaches out and references UTXO-A; a red SPENT mark seals it; a new UTXO-B (Bob) crystallizes; a smaller change UTXO returns to Alice. 9–12s: no coin physically travels — the old output dims while new outputs glow. Slow push-in.",
     camera: ["Dolly In"],
@@ -139,7 +139,7 @@ export const scenes: Scene[] = [
     layer: "quark",
     durationSeconds: 13, // narration ~11s
     keyframePrompt:
-      'A vertical transparent stack test-tube in a dark lab; particles labeled "Sig" and "PubKey" stacked inside; opcode operations shown as colliding particles; violet-magenta energy; a single green "TRUE" particle glowing at the top',
+      'A tall vertical transparent stack-tube shaped from glowing violet energy (NOT lab glassware) floating in the same dark cosmic void as the other scenes — no laboratory, no benches, no monitors, no furniture; violet-magenta subatomic quark-like particles labeled "Sig" and "PubKey" stacked inside; opcode operations shown as colliding particles; a single green "TRUE" particle glowing at the top; starfield background',
     motionPrompt:
       "0–3s: a \"Sig\" particle drops into a vertical transparent stack; \"PubKey\" stacks above. 3–8s: OP_DUP duplicates the pubkey, OP_HASH160 hashes the copy, it is compared to the stored PubKeyHash, OP_EQUALVERIFY checks the match, OP_CHECKSIG verifies the signature — each shown as a sequential particle collision. 8–11s: a single green TRUE particle remains. 11–13s: a failure branch shows a red FALSE collapse.",
     camera: ["Static"],
