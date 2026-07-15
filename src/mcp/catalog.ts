@@ -36,8 +36,8 @@ export interface CatalogEntry {
 
 export const imageCatalog: CatalogEntry[] = [
   // Generators
-  { id: "nano_banana_2", name: "Nano Banana 2", provider: "Google", role: "generator", cr: 2, cost: "2cr (1k/2k; 4k=4)", aspects: "1:1…21:9", note: "⭐ project keyframe model — what nano_banana_pro resolves to via MCP; excellent ₿/text at 21:9" },
-  { id: "nano_banana_pro", name: "Nano Banana Pro", provider: "Google", role: "generator", cr: 2, cost: "2cr (1k/2k; 4k=4)", aspects: "1:1…21:9", note: "MCP generate_image ALIASES this to nano_banana_2 — can't call pro directly; request nano_banana_2" },
+  { id: "nano_banana_2", name: "Nano Banana 2", provider: "Google", role: "generator", cr: 2, cost: "2cr (1k/2k; 4k=4)", aspects: "1:1…21:9", note: "⭐ keyframe request id (scenes 2–9); excellent ₿/labels at 21:9. Echoed `model` = backend engine (ran as nano_banana_flash), ≠ requested id" },
+  { id: "nano_banana_pro", name: "Nano Banana Pro", provider: "Google", role: "generator", cr: 2, cost: "2cr (1k/2k; 4k=4)", aspects: "1:1…21:9", note: "requesting it ran engine nano_banana_2 (Scene 1); echoed `model` = backend engine ≠ requested id (opaque mapping)" },
   { id: "nano_banana_2_lite", name: "Nano Banana 2 Lite", provider: "Google", role: "generator", cr: 1, cost: "1cr (1k)", aspects: "1:1…21:9", note: "lite next-gen" },
   { id: "nano_banana_2_shots", name: "Nano Banana Pro (shots)", provider: "Google", role: "generator", cr: 4, cost: "4cr", aspects: "1:1…21:9", note: "multi-reference NBP variant" },
   { id: "nano_banana", name: "Nano Banana", provider: "Google", role: "generator", cr: 1, cost: "1cr", aspects: "1:1…21:9", note: "budget realistic" },

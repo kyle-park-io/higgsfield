@@ -36,13 +36,13 @@ export const keyframeModels: Record<string, ModelInfo> = {
     mcpModelId: "nano_banana_2",
     aspects: ["1:1", "3:2", "2:3", "4:3", "3:4", "4:5", "5:4", "9:16", "16:9", "21:9"],
     cost: { "1k": 2, "2k": 2, "4k": 4 },
-    note: "⭐ EFFECTIVE keyframe model — MCP generate_image resolves `nano_banana_pro` to this (server alias, confirmed twice). Great detail + ₿/text at 21:9. Used for the keyframes. 1k=2k=2cr (use 2k); 4k=4cr.",
+    note: "⭐ keyframe REQUEST id — used for scenes 2–9 (excellent detail + legible ₿/labels at 21:9). NB: the response `model` echoes Higgsfield's backend ENGINE, not the requested id — requesting this ran engine `nano_banana_flash`. Mapping is opaque (not a simple alias). 1k=2k=2cr; 4k=4cr.",
   },
   nano_banana_pro: {
     mcpModelId: "nano_banana_pro",
     aspects: ["1:1", "3:2", "2:3", "4:3", "3:4", "4:5", "5:4", "9:16", "16:9", "21:9"],
     cost: { "1k": 2, "2k": 2, "4k": 4 },
-    note: "Nominal 'ultimate quality, text/diagrams' — but MCP generate_image ALIASES this to nano_banana_2 (you cannot call pro directly here). Request nano_banana_2 instead. 1k=2k=2cr; 4k=4cr.",
+    note: "Requesting this ran engine `nano_banana_2` (Scene 1 keeper). The echoed `model` is a backend engine name ≠ the requested id; the mapping is opaque. 1k=2k=2cr; 4k=4cr.",
   },
   soul_cinematic: {
     mcpModelId: "soul_cinematic",

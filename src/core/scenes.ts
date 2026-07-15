@@ -5,7 +5,7 @@ export const production = {
   aspectRatio: "21:9", // keyframe native ratio (nano_banana_pro / Soul); video uses each model's own native ratio — no cropping
   fps: 24,
   clipSeconds: 15, // legacy default/max; per-scene target is Scene.durationSeconds (Korean-VO paced)
-  keyframeModel: "nano_banana_2", // nano_banana_pro aliases to this via MCP generate_image; best for labeled/diagram scenes; soul_cinematic = mood/cheap alt — see src/mcp/model-map.ts
+  keyframeModel: "nano_banana_2", // request id for keyframes (ran as backend engine nano_banana_flash — echoed model ≠ requested id); soul_cinematic = mood/cheap alt — see src/mcp/model-map.ts
   styleTags:
     "dark cosmic void, bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic",
   /** Fixed palette reused on every keyframe. "Gold" is anchored to Bitcoin orange #F7931A (brand color). */
