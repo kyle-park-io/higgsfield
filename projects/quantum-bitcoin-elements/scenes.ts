@@ -1,4 +1,4 @@
-import type { Scene } from "./types.ts";
+import type { Scene } from "../../src/core/types.ts";
 
 /** Project-wide constants fixed across all 9 scenes (from the production guide). */
 export const production = {

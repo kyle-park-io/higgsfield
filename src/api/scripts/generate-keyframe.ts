@@ -14,13 +14,15 @@
 // Use Soul's native max ratio (16:9, 2048x1152) as-is — no cropping.
 
 import { mkdirSync, writeFileSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
 import { BatchSize, HiggsfieldClient, SoulQuality, SoulSize } from "@higgsfield/client";
-import { scenes } from "../../core/scenes.ts";
+import { loadProject, stripProjectFlag } from "../../core/project.ts";
 
-// Args: a positional sceneId plus flags. `--dry-run` (`-n`) previews without spending.
-const args = process.argv.slice(2);
+const { name: projectName, dir: projectDir, scenes } = loadProject();
+
+// Args: a positional sceneId plus flags. `--project <name>` is consumed by the loader;
+// `--dry-run` (`-n`) previews without spending.
+const args = stripProjectFlag();
 const dryRun = args.includes("--dry-run") || args.includes("-n");
 const sceneId = Number(args.find((a) => !a.startsWith("-")) ?? "1");
 const scene = scenes.find((s) => s.id === sceneId);
@@ -50,13 +52,14 @@ const APPROX_COST_CR = 0.12;
 // --- Dry run: validate + preview the exact request. No network call, no credits. ---
 if (dryRun) {
   console.log(`Scene ${scene.id} "${scene.title}" — DRY RUN (no API call, no credits)`);
+  console.log(`  project: ${projectName}`);
   console.log("  path:   REST API (platform.higgsfield.ai)  POST /v1/text2image/soul");
   console.log(
     `  model:  Soul · quality ${params.quality} · size ${size} (16:9 native, no crop) · batch ${params.batch_size}`,
   );
   console.log(`  est:    ≈${APPROX_COST_CR} cr (approx — MCP Soul snapshot; REST not separately measured)`);
   console.log(`  creds:  HF_API_KEY ${apiKey ? "✓" : "✗ not set"}   HF_API_SECRET ${apiSecret ? "✓" : "✗ not set"}`);
-  console.log(`  save:   keyframes/scene${n}/<timestamp>.png  (never overwrites)`);
+  console.log(`  save:   projects/${projectName}/keyframes/scene${n}/<timestamp>.png  (never overwrites)`);
   console.log(`  prompt: ${scene.keyframePrompt}`);
   process.exit(0);
 }
@@ -94,8 +97,7 @@ try {
     process.exit(2);
   }
 
-  const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
-  const dir = join(root, "keyframes", `scene${n}`); // per-scene folder — keep every attempt
+  const dir = join(projectDir, "keyframes", `scene${n}`); // per-scene folder — keep every attempt
   mkdirSync(dir, { recursive: true });
 
   const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);

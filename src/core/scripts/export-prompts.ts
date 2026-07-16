@@ -1,11 +1,9 @@
 import { mkdirSync, writeFileSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
-import { production, scenes } from "../scenes.ts";
+import { join } from "node:path";
+import { loadProject } from "../project.ts";
 
-// repo root = three levels up from src/core/scripts/
-const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
-const outDir = join(root, "prompts");
+const { name, dir, production, scenes } = loadProject();
+const outDir = join(dir, "prompts");
 mkdirSync(outDir, { recursive: true });
 
 for (const s of scenes) {
@@ -32,7 +30,7 @@ ${s.narration}
 _Common style tags: ${production.styleTags}_
 `;
   writeFileSync(join(outDir, `scene${n}.md`), md, "utf8");
-  console.log(`wrote prompts/scene${n}.md`);
+  console.log(`wrote projects/${name}/prompts/scene${n}.md`);
 }
 
-console.log(`\n${scenes.length} scene prompt files written to prompts/`);
+console.log(`\n${scenes.length} scene prompt files written to projects/${name}/prompts/`);

@@ -1,8 +1,16 @@
-# Higgsfield — Quantum Bitcoin Elements
+# Higgsfield — Cutscenes Monorepo
 
-Working environment for producing the 9-scene "Quantum Bitcoin Elements" explainer
-(one continuous zoom: blockchain → block → transaction → input/output → script → opcode·byte)
-with **Higgsfield**, driven by Claude through the **Higgsfield MCP** server.
+Working environment for producing Higgsfield cutscene projects, driven by Claude through the
+**Higgsfield MCP** server. **Shared tooling** lives in `src/`; each production is an
+**independent project** under `projects/<name>/` (its own `scenes.ts` SSOT + prompts + media),
+selected with the `--project <name>` flag (default: `quantum-bitcoin-elements`).
+
+**Projects**
+
+- **`quantum-bitcoin-elements`** (default) — the 9-scene explainer as one continuous zoom
+  (blockchain → block → transaction → input/output → script → opcode·byte).
+- **`quantum-entanglement`** — same 9-scene guide & format (21:9), re-based on a new reference
+  video (`projects/quantum-entanglement/references/…mp4`) as its visual base.
 
 ## Prerequisites
 
@@ -34,29 +42,41 @@ directly from this session.
 
 ## Scripts
 
+All scene-aware scripts take `--project <name>` (or `-p`, or `HF_PROJECT=<name>`); omit it to use
+the default project. Pass it after `--`, e.g. `pnpm shot-list -- --project quantum-entanglement`.
+
 | Command | What it does |
 |---|---|
-| `pnpm typecheck` | Type-check the project (`tsc --noEmit`) |
-| `pnpm export:prompts` | Regenerate `prompts/sceneNN.md` from the scenes SSOT |
-| `pnpm shot-list` | Print the per-scene status table |
+| `pnpm typecheck` | Type-check the whole monorepo (`tsc --noEmit`) |
+| `pnpm export:prompts` | Regenerate the selected project's `prompts/sceneNN.md` from its `scenes.ts` |
+| `pnpm shot-list` | Print the selected project's per-scene status table |
 | `pnpm plan:report` | Plan tiers + the minimum Higgsfield plan each model/scene needs |
+| `pnpm models` | Full Higgsfield model catalog with measured credit costs (project-agnostic) |
 
 ## Layout
 
 ```
 .mcp.json          Higgsfield MCP (project scope)
-docs/              production guide + original scenario (local only — git-ignored)
-src/
-  core/            shared, path-agnostic
+src/               SHARED tooling (project-agnostic), selected via --project
+  core/
     types.ts       Scene / camera / model types
-    scenes.ts      the 9 scenes as typed data (SSOT) + palette/format
     models.ts      plan tiers + per-model minimum-plan reference
+    registry.ts    the list of projects (add a project here)
+    project.ts     --project resolver + loader (name, dir, scenes, production)
     scripts/       export-prompts.ts, shot-list.ts, plan-report.ts
-  mcp/             MCP path (active) — model-map.ts + README.md  (agent-driven, no CLI)
+  mcp/             MCP path (active) — model-map.ts + catalog.ts + README.md  (agent-driven, no CLI)
   api/             API path (alt)   — scripts/{check-auth,generate-keyframe}.ts + README.md
-prompts/           generated per-scene prompt files (tracked)
-keyframes/         stills, per scene: keyframes/sceneNN/  (git-ignored — large binaries)
-outputs/           rendered video clips (git-ignored — large binaries)
+projects/          one independent project per folder
+  quantum-bitcoin-elements/
+    scenes.ts      this project's 9 scenes as typed data (SSOT) + palette/format
+    prompts/       generated per-scene prompt files (tracked)
+    docs/          production guide + original scenario (local only — git-ignored)
+    credit-log.md  per-asset credit spend log (local only — git-ignored)
+    keyframes/     stills, per scene: keyframes/sceneNN/  (git-ignored — large binaries)
+    outputs/       rendered video clips + audio/ (git-ignored — large binaries)
+  quantum-entanglement/
+    scenes.ts · prompts/ · docs/ · keyframes/ · outputs/
+    references/    the reference video(s) this project is based on (git-ignored)
 ```
 
 ## Two generation paths
@@ -68,7 +88,7 @@ Two independent ways to drive Higgsfield — see each folder's README:
 - **[API](./src/api/README.md) — alternative, scriptable.** `pnpm generate:keyframe` via the
   `@higgsfield/client` SDK. Uses a **separate platform API credit balance** (`.env` keys).
 
-Both read prompts from the shared SSOT, [`src/core/scenes.ts`](./src/core/scenes.ts).
+Both read prompts from the selected project's SSOT, `projects/<name>/scenes.ts`.
 
 ## Plans & minimum tier
 
@@ -100,12 +120,18 @@ Kling / Cinema Studio / DoP Lite + Seedance *Fast*).
 
 ## Workflow
 
-1. Edit prompts/camera/models/status in **`src/core/scenes.ts`** (single source of truth).
-2. `pnpm export:prompts` → refreshes `prompts/`.
-3. Ask Claude to generate via the Higgsfield MCP: a Soul keyframe per scene → save under
-   `keyframes/` → image-to-video with the scene's model → save under `outputs/`.
-4. Update each scene's `status` as it progresses (`todo → keyframe → video → done`);
-   track with `pnpm shot-list`.
+Pick the project with `--project <name>` (default `quantum-bitcoin-elements`), then:
 
-See `docs/higgsfield-production-guide.md` (kept locally, not committed to the repo) for the
-full production plan (palette, camera mapping, per-scene notes, model A/B protocol).
+1. Edit prompts/camera/models/status in **`projects/<name>/scenes.ts`** (that project's SSOT).
+2. `pnpm export:prompts -- --project <name>` → refreshes `projects/<name>/prompts/`.
+3. Ask Claude to generate via the Higgsfield MCP: a keyframe per scene → save under
+   `projects/<name>/keyframes/` → image-to-video with the scene's model → save under
+   `projects/<name>/outputs/`.
+4. Update each scene's `status` as it progresses (`todo → keyframe → video → done`);
+   track with `pnpm shot-list -- --project <name>`.
+
+To **add a project**: create `projects/<name>/scenes.ts` and register it in
+[`src/core/registry.ts`](./src/core/registry.ts).
+
+See `projects/<name>/docs/guide.md` (kept locally, not committed) for the full production plan
+(palette, camera mapping, per-scene notes, model A/B protocol).

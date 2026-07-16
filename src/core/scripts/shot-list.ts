@@ -1,5 +1,7 @@
 import type { SceneStatus } from "../types.ts";
-import { scenes } from "../scenes.ts";
+import { loadProject } from "../project.ts";
+
+const { name, scenes } = loadProject();
 
 const mark: Record<SceneStatus, string> = {
   todo: "[ ]",
@@ -11,6 +13,7 @@ const mark: Record<SceneStatus, string> = {
 const pad = (s: string, n: number): string =>
   s.length > n ? s.slice(0, n - 1) + "…" : s.padEnd(n);
 
+console.log(`Project: ${name}`);
 console.log(
   `${pad("Scene", 6)} ${pad("Layer", 9)} ${pad("Camera", 26)} ${pad("Model A / B", 26)} Status`,
 );

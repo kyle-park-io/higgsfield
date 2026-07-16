@@ -6,7 +6,9 @@ import {
   modelPlans,
   plans,
 } from "../models.ts";
-import { scenes } from "../scenes.ts";
+import { loadProject } from "../project.ts";
+
+const { name: projectName, scenes } = loadProject();
 
 const pad = (s: string, n: number): string =>
   s.length > n ? s.slice(0, n - 1) + "…" : s.padEnd(n);
@@ -28,7 +30,7 @@ for (const [model, info] of Object.entries(modelPlans)) {
   );
 }
 
-console.log("\nPer scene — plan needed for keyframe (Nano Banana 2) + primary video model");
+console.log(`\nPer scene — plan needed for keyframe (Nano Banana 2) + primary video model [${projectName}]`);
 console.log("-".repeat(92));
 const keyframePlan = modelPlans["Nano Banana 2"].minPlan;
 let projectPlan: PlanTier = keyframePlan;

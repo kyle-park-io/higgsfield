@@ -3,8 +3,8 @@
 Generation runs through the **Higgsfield MCP** (`https://mcp.higgsfield.ai/mcp`, OAuth). This path
 is **driven by the agent (Claude) in-session — there is no CLI generation script** (a read-only
 `pnpm models` report over the catalog does exist). Claude reads a scene's
-prompt from [`../core/scenes.ts`](../core/scenes.ts) and calls the MCP `generate_*` tools with the
-model id from [`model-map.ts`](./model-map.ts).
+prompt from the selected project's SSOT, `projects/<name>/scenes.ts`, and calls the MCP
+`generate_*` tools with the model id from [`model-map.ts`](./model-map.ts).
 
 ## Auth & credits
 - Connect once: `/mcp` → **higgsfield** → **Authenticate** (OAuth). The project `.mcp.json` server is
@@ -15,11 +15,11 @@ model id from [`model-map.ts`](./model-map.ts).
   image takes ~60–90s.
 
 ## Generation flow (what Claude does)
-1. Read the scene's prompt from `core/scenes.ts`.
+1. Read the scene's prompt from the project's `projects/<name>/scenes.ts`.
 2. `models_explore(action:"get", model_id)` for aspect ratios/params (or use `model-map.ts`).
 3. `generate_image` / `generate_video` — preflight with `get_cost: true` first.
 4. Poll `job_status(jobId, sync:true)` until `completed`.
-5. Download the result to `keyframes/sceneNN/<timestamp>.png` (or `outputs/`) — **never overwrite**.
+5. Download the result to `projects/<name>/keyframes/sceneNN/<timestamp>.png` (or `outputs/`) — **never overwrite**.
 
 ## Aspect ratio
 No 2.35:1 preset anywhere — use each model's **native** ratio (see `model-map.ts`). Widest available

@@ -20,8 +20,9 @@ reproducible / batch generation **without an agent in the loop**.
 | `pnpm generate:keyframe [sceneId]` | Soul keyframe via `POST /v1/text2image/soul` (defaults to scene 1) — **spends credits** |
 | `pnpm generate:keyframe:dry [sceneId]` | Dry run — preview the request, spend nothing |
 
-Outputs save to `keyframes/sceneNN/<timestamp>.png` — **never overwritten**. Prompts come from the
-shared SSOT, [`../core/scenes.ts`](../core/scenes.ts).
+Add `--project <name>` (default `quantum-bitcoin-elements`) to target a project. Outputs save to
+`projects/<name>/keyframes/sceneNN/<timestamp>.png` — **never overwritten**. Prompts come from that
+project's SSOT, `projects/<name>/scenes.ts`.
 
 ## Dry run (`--dry-run` / `-n`)
 
@@ -35,11 +36,12 @@ before a real run:
 ```
 $ pnpm generate:keyframe:dry 1
 Scene 1 "흩어진 거래들이 모인다" — DRY RUN (no API call, no credits)
+  project: quantum-bitcoin-elements
   path:   REST API (platform.higgsfield.ai)  POST /v1/text2image/soul
   model:  Soul · quality 1080p · size 2048x1152 (16:9 native, no crop) · batch 1
   est:    ≈0.12 cr (approx — MCP Soul snapshot; REST not separately measured)
   creds:  HF_API_KEY ✓   HF_API_SECRET ✓
-  save:   keyframes/scene01/<timestamp>.png  (never overwrites)
+  save:   projects/quantum-bitcoin-elements/keyframes/scene01/<timestamp>.png  (never overwrites)
   prompt: Abstract dark cosmic void filled with dozens of small glowing…
 ```
 

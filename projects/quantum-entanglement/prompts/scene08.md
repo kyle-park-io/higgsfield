@@ -1,0 +1,20 @@
+# Scene 8 — 스택에서 검증하기 (충돌 실험)
+
+- **Layer:** quark (violet)
+- **Camera:** Static
+- **Keyframe model:** nano_banana_2
+- **Video model:** Seedance 2.0 (A) / Veo 3.1 (B)
+- **Format:** 21:9 keyframe · 24fps · 13s clip
+- **Status:** keyframe
+
+## Keyframe prompt
+A tall vertical transparent stack-tube shaped from glowing violet energy (NOT lab glassware) floating in the same dark cosmic void as the other scenes — no laboratory, no benches, no monitors, no furniture; violet-magenta subatomic quark-like particles labeled "Sig" and "PubKey" stacked inside; opcode operations shown as colliding particles; a single green "TRUE" particle glowing at the top; starfield background
+
+## Motion (video) prompt
+0–3s: a "Sig" particle drops into a vertical transparent stack; "PubKey" stacks above. 3–8s: OP_DUP duplicates the pubkey, OP_HASH160 hashes the copy, it is compared to the stored PubKeyHash, OP_EQUALVERIFY checks the match, OP_CHECKSIG verifies the signature — each shown as a sequential particle collision. 8–11s: a single green TRUE particle remains. 11–13s: a failure branch shows a red FALSE collapse.
+
+## Narration (KO)
+스크립트는 선언문이 아니라 실행 순서다. 데이터가 스택에 쌓이고, 연산자가 하나씩 실행된다. 최종 결과가 참이어야 이전 출력을 소비할 수 있다.
+
+---
+_Common style tags: one continuous dark cosmic void (never a physical room or laboratory — no benches, monitors, or furniture), bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic_

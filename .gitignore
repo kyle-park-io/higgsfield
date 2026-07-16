@@ -8,13 +8,13 @@ dist/
 # Personal Claude Code settings (local MCP approvals) — not committed
 .claude/settings.local.json
 
-# Internal instruction / scenario docs — kept local, not committed
-docs/
+# Per-project instruction / scenario docs & spend log — kept local, not committed
+projects/*/docs/
+projects/*/credit-log.md
 
-# Large generated media — keep the folders, ignore their contents
-keyframes/*
-outputs/*
-!keyframes/.gitkeep
-!outputs/.gitkeep
+# Per-project large generated media — ignore contents; scenes.ts + prompts/ stay tracked
+projects/*/keyframes/
+projects/*/outputs/
+projects/*/references/
 
 .DS_Store

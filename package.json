@@ -1,9 +1,9 @@
 {
-  "name": "higgsfield-quantum-bitcoin",
+  "name": "higgsfield-cutscenes",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Higgsfield production environment for the Quantum Bitcoin Elements 9-scene explainer (driven via the Higgsfield MCP).",
+  "description": "Higgsfield cutscene monorepo — shared src/ tooling over independent projects under projects/<name>/ (select with --project). First project: Quantum Bitcoin Elements.",
   "engines": {
     "node": ">=22.18"
   },
