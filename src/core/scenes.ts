@@ -47,7 +47,7 @@ export const scenes: Scene[] = [
     motionPrompt:
       "0–5s: scattered cyan transaction particles drift in dark void. 5–11s: particles are pulled inward and aggregate into one large translucent amber molecular block; the gold coinbase particle enters first and settles at the core. 11–15s: block completes with a soft pulsing glow. Particle-aggregation VFX, volumetric light.",
     camera: ["Dolly In"],
-    models: { primary: "Seedance 2.0", alt: "Kling 3.0" },
+    models: { primary: "Seedance 2.0", alt: "Kling 3.0" }, // tested 3: Seedance std 3d5accd6, Seedance Mini 26956439, Kling v3.0 04b3968f
     narration:
       "비트코인의 장부는 거래 하나가 아니라 여러 트랜잭션을 담은 블록에서 시작된다. 블록의 첫 번째 트랜잭션은 새로운 비트코인과 수수료를 수집하는 코인베이스 트랜잭션이다.",
     status: "keyframe",
@@ -62,7 +62,7 @@ export const scenes: Scene[] = [
     motionPrompt:
       "0–5s: the block-header nucleus ignites and emits a light beam linking to the previous block. 5–11s: camera pulls back revealing a long molecular chain of linked blocks. 11–15s: one middle block is tampered — all subsequent bonds flash red and tremble. Volumetric light, energy VFX.",
     camera: ["Dolly Out", "Crash Zoom In"],
-    models: { primary: "Seedance 2.0", alt: "Cinema Studio" },
+    models: { primary: "Seedance 2.0", alt: "Kling 3.0" }, // both tested: Seedance std 31c0cdcb, Kling v3.0 eab0a320
     narration:
       "블록은 독립적으로 떠 있지 않는다. 각 블록은 이전 블록을 가리키며 순서 있는 기록을 만든다. 과거의 한 블록을 바꾸려면, 그 이후의 연결도 함께 다시 만들어야 한다.",
     status: "keyframe",
