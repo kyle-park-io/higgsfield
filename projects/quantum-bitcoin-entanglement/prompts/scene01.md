@@ -8,10 +8,10 @@
 - **Status:** keyframe
 
 ## Keyframe prompt
-Abstract dark cosmic void filled with dozens of small glowing spherical plasma orbs of varying sizes drifting in volumetric fog, cool cyan-white bioluminescence with faint radiating light filaments; among the cyan orbs, one single larger orb glowing in warm Bitcoin-orange gold (hex #F7931A) stands out — a golden Bitcoin token marked with the ₿ symbol, representing the coinbase transaction; scientific particle-simulation aesthetic, cinematic, ultra detailed; no text, no numbers, no UI panels, no Ethereum, no diamond or octahedron gem, no other cryptocurrency logos
+Photoreal deep-field astrophotography of an immense starfield with a rich magenta and violet nebula receding into deep space; scattered across the field, dozens of glowing spherical plasma orbs of varying sizes, each with a turbulent, roiling stellar surface of cyan-white energy and fine radiating light filaments; a faint constellation-line network of thin white lines and nodes overlays the background; among the cyan orbs, one single larger orb burns in warm Bitcoin-orange gold (hex #F7931A) — a golden Bitcoin token marked with the ₿ symbol, representing the coinbase transaction; high star density, dark near-field for contrast, volumetric glow, cinematic, ultra detailed; no text, no numbers, no UI panels, no labels, no planet surface, no landscape, no people, no Ethereum, no diamond or octahedron gem, no other cryptocurrency logos
 
 ## Motion (video) prompt
-0–5s: scattered cyan transaction particles drift in dark void. 5–11s: particles are pulled inward and aggregate into one large translucent amber molecular block; the gold coinbase particle enters first and settles at the core. 11–15s: block completes with a soft pulsing glow. Particle-aggregation VFX, volumetric light.
+0–5s: scattered cyan plasma orbs drift across the deep-field nebula, their stellar surfaces roiling. 5–11s: orbs are pulled inward and aggregate into one large translucent amber block-body; the gold coinbase orb enters first and settles at the core. 11–15s: block completes with a soft pulsing glow. Particle-aggregation VFX, volumetric light.
 
 ## Narration (KO)
 비트코인의 장부는 거래 하나가 아니라 여러 트랜잭션을 담은 블록에서 시작된다. 블록의 첫 번째 트랜잭션은 새로운 비트코인과 수수료를 수집하는 코인베이스 트랜잭션이다.

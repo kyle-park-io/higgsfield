@@ -8,10 +8,10 @@
 - **Status:** keyframe
 
 ## Keyframe prompt
-A glowing Bitcoin-gold block rendered as a clear molecule (warm orange-gold, hex #F7931A) — a cluster of many small translucent transaction atom-spheres bonded together by energy bonds, a ₿ symbol on it — floating in a dark cosmic void; several identical glowing holographic validator nodes (floating luminous verification units / ring-scanners, NOT physical servers, computers, monitors, or cameras) surround it, each independently running the same ruleset and casting a thin green verification scan-grid onto the molecule; a valid block glows green across all nodes, an invalid one flashes red; starfield background; no physical room or lab, no server racks, no monitors, no cameras, no Ethereum, no other cryptocurrency logos
+Photoreal deep-field astrophotography: a vast web of faint violet dark-matter-like filaments studded with glowing nodes fills the deep space background, receding into the distance — this web is the validator network, not a physical structure; at center floats a glowing Bitcoin-gold block-body (warm orange-gold, hex #F7931A), a cluster of bonded transaction orbs with turbulent stellar plasma surfaces, a ₿ symbol on it; several of the web's nodes brighten and each casts a translucent sphere of sweeping green energy arcs wrapped around the block, reading it without touching it; a valid block glows green across all nodes at once, an invalid one flashes red; rich magenta and violet nebula, high star density, dark near-field, cinematic, ultra detailed; no physical room or lab, no server racks, no monitors, no computers, no cameras, no planet surface, no landscape, no people, no text labels, no Ethereum, no other cryptocurrency logos
 
 ## Motion (video) prompt
-0–6s: the block molecule passes between multiple node scanners; each scanner sequentially highlights header, transaction bundle, referenced previous outputs, script results. 6–12s: a valid block glows green across all nodes simultaneously. 12–15s: an invalid block is bounced out in red by every node at once.
+0–6s: the cosmic web's nodes brighten one by one, each wrapping the gold block in a sphere of sweeping green scan arcs — header, transaction bundle, referenced previous outputs, script results. 6–12s: a valid block glows green across all nodes simultaneously. 12–15s: an invalid block is bounced out in red by every node at once.
 
 ## Narration (KO)
 비트코인에는 하나의 중앙 검사자가 없다. 각 풀노드는 블록과 트랜잭션을 스스로 검증한다. 같은 규칙을 실행한 노드들이 같은 유효한 기록을 선택한다.
