@@ -156,6 +156,13 @@ export const scenes: Scene[] = [
     models: { primary: "Seedance 2.0", alt: "Seedance 2.0 Mini" },
     narration:
       "비트코인에서 잔액이 주소 사이를 옮겨 다니지 않는다. 이전의 미사용 출력을 소비하고, 새로운 조건을 가진 출력을 만든다.",
+    // Burned on in post, not generated (video corrupts them). Positions verified against the keeper.
+    labels: [
+      { text: "UTXO A / Alice (5.0 BTC)", x: 0.082, y: 0.238 },
+      { text: "Transaction Atom (TXID)", x: 0.422, y: 0.151 },
+      { text: "UTXO B / Bob (3.5 BTC)", x: 0.735, y: 0.238 },
+      { text: "Change UTXO / Alice (1.5 BTC)", x: 0.32, y: 0.825 },
+    ],
     status: "keyframe",
   },
   {

@@ -54,6 +54,18 @@ export interface Scene {
   models: { primary: VideoModel; alt: VideoModel };
   /** Original Korean narration. */
   narration: string;
+  /**
+   * Diagram labels burned onto the clip in post, NOT generated in the video.
+   *
+   * Video models corrupt small on-screen text once several labels are present and the frame
+   * animates — even with a locked camera (scene 5: URXO, UVO, STC, Transction). So keyframes carry
+   * labels for composition only; the clip is generated ignoring them; the accurate labels are
+   * overlaid at edit time from this list (real font → correct spelling, stable, editable).
+   *
+   * `x`/`y` are normalized 0–1 (fraction of width/height), top-left anchor, matching the label's
+   * position in the keyframe. Optional — sparse scenes (1–3) need none.
+   */
+  labels?: { text: string; x: number; y: number }[];
   /** Current production status. */
   status: SceneStatus;
 }

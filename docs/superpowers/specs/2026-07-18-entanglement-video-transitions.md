@@ -34,6 +34,31 @@ rules confirmed by the scene 4/5 proofs. It complements the restyle design spec
    (front-on hold, or a dolly that never re-lays them out). This is why transitions are done in edit
    (cross-dissolve), not by morphing one scene into the next.
 
+## Labels are burned on in post, not generated
+
+Video models corrupt small diagram text once a scene has several labels and animates — proven on
+scene 5, where even a *locked* camera produced `URXO`, `UVO`, `STC`, `Transction`. Rerolling just
+reshuffles which labels break. So:
+
+1. **Keyframes** carry labels — for composition only (where each thing sits).
+2. **Clips** are generated telling the model there is **no text** (or ignoring whatever text it
+   renders); we only need the shapes and motion.
+3. **Edit** overlays the accurate labels from `Scene.labels` with a real font — correct spelling,
+   stable across the whole clip, editable, and consistent with the Korean subtitle track.
+
+`Scene.labels` (src/core/types.ts) holds `{ text, x, y }` per label, `x`/`y` normalized 0–1
+(top-left, matching the keyframe position). Burn them with:
+
+```
+node src/core/scripts/burn-labels.ts --project <name> --scene <id>
+# outputs/scene0N/keeper.mp4 → keeper-labeled.mp4
+```
+
+Proven on scene 5 (`keeper-labeled.mp4`): four labels, all correct, stable through the SPENT stamp
+and output crystallization. Only scene 5 is populated so far; other label-heavy scenes (6, 8, 9)
+get their `labels` filled as their clips are made — and those clips should be generated **without**
+on-screen text from the start, so nothing shows through the overlay.
+
 ## Transition method per seam
 
 Three methods, chosen by the relationship between the two scenes:
