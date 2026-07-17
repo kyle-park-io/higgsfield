@@ -18,3 +18,6 @@ projects/*/outputs/
 projects/*/references/
 
 .DS_Store
+
+# Subagent-driven-development scratch (progress ledger, briefs, review packages)
+.superpowers/
