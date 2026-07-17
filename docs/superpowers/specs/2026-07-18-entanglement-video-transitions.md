@@ -25,6 +25,11 @@ rules confirmed by the scene 4/5 proofs. It complements the restyle design spec
 5. **Silent clips** (`generate_audio:false`); Korean VO is a separate track, muxed in assembly.
 6. **Decline the preset recommendation.** Generation often suggests the "IN THE DARK" preset — pass
    `declined_preset_id` and generate literally.
+8. **Labels must not re-render — keep them anchored to a still.** In an end_chain morph the labels
+   are re-generated as the composition moves, and they corrupt: wrong spellings and even a wrong
+   number (Bob at 5.5 instead of 3.5 BTC). Labels only stay reliable when they hold to a keyframe
+   (front-on hold, or a dolly that never re-lays them out). This is why transitions are done in edit
+   (cross-dissolve), not by morphing one scene into the next.
 7. **Clip lengths** are VO + ~2 s (measured Brooks VO): 4=12, 5=13, 6=15, 8=15, the rest 15, scene 9
    splits 9a/9b. Motion prompts end on a "calm final beat" filling the tail so nothing hard-cuts the
    instant the voice stops.
@@ -64,9 +69,11 @@ seams where the morph is worth it, not made the default.
 | 8→9 | quark→quark | stack → whole transaction atom (Super Dolly Out) | **cross-dissolve** (lean) | scene 9 literally "pulls back from the stack", so end_chain is tempting — but the 4→5 test showed morphing labels corrupt (wrong BTC amount). Scene 9 has many labels (six data surfaces), so the same risk applies. Default to cross-dissolve unless an end_chain test proves the labels survive |
 | **9a→9b** | quark (internal) | **one shot, split for the 15 s cap** | **shared intermediate frame** | not a scene change — one Super Dolly Out cut in half (~27 s VO). 9a `end_image` = 9b `start_image` = an intermediate pull-back keyframe (needs one 2 cr still), so the split is invisible |
 
-Summary: **cross-dissolve is the default** (1→2, 4→5, 5→6, 7→8). **Hard cut** at the two crash-zoom
-layer transitions (3→4, 6→7) and the anchored 2→3. **end_chain** at 8→9 (and optionally 4→5).
-**9a→9b** needs a shared middle frame.
+Summary: **cross-dissolve is the default** (1→2, 4→5, 5→6, 7→8, 8→9). **Hard cut** at the two
+crash-zoom layer transitions (3→4, 6→7) and the anchored 2→3. No seam uses end_chain in production —
+the 4→5 test proved morphing labels corrupt (wrong numbers), and every remaining candidate (8→9) is
+label-heavy. **9a→9b** still needs a shared middle frame (an internal split, not a transition, so no
+label morph — the two halves show the same continuous pull-back).
 
 ## Anchors already built into the keyframes/motion
 
