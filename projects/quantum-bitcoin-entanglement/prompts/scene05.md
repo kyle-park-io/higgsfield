@@ -17,4 +17,4 @@ An atomic-diagram scene rendered entirely as glowing cyan particles and atoms (n
 비트코인에서 잔액 덩어리가 주소 사이를 이동하는 것은 아니다. 이전의 미사용 출력을 소비하고, 새로운 조건을 가진 출력을 만든다.
 
 ---
-_Common style tags: one continuous dark cosmic void (never a physical room or laboratory — no benches, monitors, or furniture), bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic_
+_Common style tags: one continuous deep-space field (never a physical room, laboratory, planet surface, or real-world location — no benches, monitors, furniture, landscapes, or people), dense starfield with a defocused deep-field nebula behind the subject and a dark near-field for contrast, bioluminescent particles, translucent 3D structures, volumetric glow, high detail, cinematic_

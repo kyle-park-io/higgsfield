@@ -16,16 +16,54 @@ export const production = {
     language: "ko",
   },
   styleTags:
-    "one continuous dark cosmic void (never a physical room or laboratory — no benches, monitors, or furniture), bioluminescent particles, translucent 3D structures, volumetric glow, scientific visualization, high detail, cinematic",
+    "one continuous deep-space field (never a physical room, laboratory, planet surface, or real-world location — no benches, monitors, furniture, landscapes, or people), dense starfield with a defocused deep-field nebula behind the subject and a dark near-field for contrast, bioluminescent particles, translucent 3D structures, volumetric glow, high detail, cinematic",
+  /**
+   * Visual grammar borrowed from the reference video (references/ref-quantum-entanglement-9x16-51s.mp4).
+   *
+   * Core rule: nothing in Bitcoin moves — it only references. Draw every cross-distance
+   * reference as an entanglement filament.
+   *
+   * These strings are the canonical wording. Each keyframePrompt inlines them rather than
+   * interpolating, because a prompt is sent verbatim to the image model and the MCP path has
+   * no resolver in the loop — a placeholder would ship unexpanded. Edit here first, then
+   * propagate by hand. See the design spec's "Known trade-off" section.
+   */
+  grammar: {
+    filament:
+      "two separated glowing bodies joined by one thin, intensely bright white-cyan energy filament; nothing travels along the filament — both ends respond together",
+    cosmicWeb:
+      "a vast web of faint violet dark-matter-like filaments studded with glowing nodes, receding into deep space",
+    warpTunnel:
+      "radial hyperspace light streaks in cyan, violet and white converging toward a dark vanishing point, motion-blurred",
+    scanArc:
+      "a translucent sphere of sweeping energy arcs wrapped around the subject, reading it without touching it",
+  },
+  /** Render tone shifts as the zoom descends: a photograph of space becomes a scientific diagram. */
+  toneByLayer: {
+    molecule: "photoreal deep-field astrophotography, turbulent stellar plasma surfaces, no text labels",
+    atom: "scientific visualization, ornate atomic diagram, legible small text labels",
+    quark: "scientific visualization, extreme macro, legible small text labels",
+  },
   /** Fixed palette reused on every keyframe. "Gold" is anchored to Bitcoin orange #F7931A (brand color). */
   palette: {
-    background: "deep black to dark navy void, volumetric fog",
+    background: "dense starfield with a defocused deep-field nebula; dark near-field for contrast",
     transactionAtom: "cool cyan-white glowing particles",
     block: "Bitcoin-orange gold (#F7931A) amber translucent shell",
     coinbase: "extra-bright Bitcoin-orange gold (#F7931A), distinct geometry",
     valid: "green-white (TRUE particles)",
     invalid: "red",
     scriptQuark: "violet/magenta energy",
+    filament: "thin, intensely bright white-cyan — the visual sign of a reference",
+  },
+  /**
+   * Background nebula hue per layer — keeps the subject legible. layerColor.quark is violet and
+   * the reference nebula is violet, so quark scenes would put a violet subject on a violet
+   * background; their nebula turns deep teal instead.
+   */
+  nebulaByLayer: {
+    molecule: "rich magenta and violet deep-field nebula, high star density",
+    atom: "muted violet-to-teal nebula, low density, heavily defocused",
+    quark: "deep teal and blue nebula, sparse — so violet script particles pop",
   },
   /** Dominant color per scale layer — shifts as the zoom descends (molecule gold anchors Bitcoin). */
   layerColor: { molecule: "Bitcoin gold/amber", atom: "cyan", quark: "violet" },
