@@ -171,9 +171,9 @@ export const scenes: Scene[] = [
     layer: "quark",
     durationSeconds: 15, // narration ~14s
     keyframePrompt:
-      'Extreme macro view inside a transaction output revealing a glowing violet/magenta "scriptPubKey" binding-force lock; incoming signature particle and public-key particle from the next tx\'s input approaching an experiment chamber; floating opcode text "OP_DUP OP_HASH160 <PubKeyHash> OP_EQUALVERIFY OP_CHECKSIG"; shallow depth of field',
+      'Scientific visualization, extreme macro inside a transaction output: radial hyperspace light streaks in cyan, violet and white converge inward at the frame edges, motion-blurred — we have just crash-zoomed through the atom shell — resolving at center on a glowing violet/magenta "scriptPubKey" binding-force lock; approaching it from the next transaction\'s input, a signature particle and a public-key particle travel as an entangled pair, joined to each other by one thin, intensely bright white-cyan filament, docking into the lock together; floating opcode text "OP_DUP OP_HASH160 <PubKeyHash> OP_EQUALVERIFY OP_CHECKSIG" orbits the lock; behind everything a sparse deep teal and blue nebula so the violet reads clearly; dense starfield, dark near-field, shallow depth of field, cinematic, ultra detailed, legible small text labels; no physical room or lab, no planet surface, no landscape, no people',
     motionPrompt:
-      "0–5s: macro crash zoom into an output, revealing scriptPubKey as a glowing violet lock condition. 5–11s: from the next transaction's input, a signature particle and a public-key particle enter and dock into the experiment chamber. 11–15s: opcodes materialize and orbit around them. Shallow depth of field.",
+      "0–5s: macro warp-tunnel crash zoom into an output, streaks resolving on a glowing violet scriptPubKey lock condition. 5–11s: from the next transaction's input, a signature particle and a public-key particle arrive as an entangled pair joined by a filament, docking into the lock together. 11–15s: opcodes materialize and orbit around them. Shallow depth of field.",
     camera: ["Crash Zoom In", "Eyes In"],
     models: { primary: "Cinema Studio", alt: "Seedance 2.0" },
     narration:
@@ -186,7 +186,7 @@ export const scenes: Scene[] = [
     layer: "quark",
     durationSeconds: 13, // narration ~11s
     keyframePrompt:
-      'A tall vertical transparent stack-tube shaped from glowing violet energy (NOT lab glassware) floating in the same dark cosmic void as the other scenes — no laboratory, no benches, no monitors, no furniture; violet-magenta subatomic quark-like particles labeled "Sig" and "PubKey" stacked inside; opcode operations shown as colliding particles; a single green "TRUE" particle glowing at the top; starfield background',
+      'Scientific visualization, extreme macro: a tall vertical transparent stack-tube shaped from glowing violet energy (NOT lab glassware) floating in deep space — no laboratory, no benches, no monitors, no furniture; violet-magenta subatomic quark-like particles labeled "Sig" and "PubKey" stacked inside; opcode operations shown as colliding particles; a single green "TRUE" particle glowing at the top; behind everything a sparse deep teal and blue nebula so the violet stack reads clearly; dense starfield, dark near-field, volumetric glow, cinematic, ultra detailed, legible small text labels; no planet surface, no landscape, no people',
     motionPrompt:
       "0–3s: a \"Sig\" particle drops into a vertical transparent stack; \"PubKey\" stacks above. 3–8s: OP_DUP duplicates the pubkey, OP_HASH160 hashes the copy, it is compared to the stored PubKeyHash, OP_EQUALVERIFY checks the match, OP_CHECKSIG verifies the signature — each shown as a sequential particle collision. 8–11s: a single green TRUE particle remains. 11–13s: a failure branch shows a red FALSE collapse.",
     camera: ["Static"],
@@ -201,9 +201,9 @@ export const scenes: Scene[] = [
     layer: "quark",
     durationSeconds: 15, // narration ~27s > 15s model cap → split into 9a/9b at generation (see guide §8)
     keyframePrompt:
-      'Camera pulled back to show a whole transaction atom with multiple data surfaces glowing — "scriptPubKey", "OP_RETURN", "scriptSig", "witness", "Taproot script path", "coinbase input"; data particles approaching each surface; a translucent measuring grid labeled "BIP110" descending over all surfaces',
+      'Scientific visualization: camera pulled back to show a whole cyan transaction atom with multiple data surfaces glowing — "scriptPubKey", "OP_RETURN", "scriptSig", "witness", "Taproot script path", "coinbase input"; data particles approaching each surface; a translucent measuring grid labeled "BIP110" descending over all surfaces; far behind in the deep background, the vast web of faint violet dark-matter-like filaments studded with glowing nodes is visible again — the validator network this atom belongs to; a sparse deep teal and blue nebula; dense starfield, dark near-field, volumetric glow, cinematic, ultra detailed, legible small text labels; no physical room or lab, no planet surface, no landscape, no people',
     motionPrompt:
-      "0–6s: camera pulls back from the stack to reveal the whole transaction atom and its many data surfaces (scriptPubKey, OP_RETURN, scriptSig, witness, Taproot path, coinbase input). 6–11s: data particles approach each surface — some become spend conditions, some sit inert, some hide inside witness/script paths. 11–15s: a translucent BIP110 measuring grid descends, checking size and format (not meaning) of each surface.",
+      "0–6s: camera pulls back from the stack to reveal the whole transaction atom and its many data surfaces (scriptPubKey, OP_RETURN, scriptSig, witness, Taproot path, coinbase input). 6–11s: data particles approach each surface — some become spend conditions, some sit inert, some hide inside witness/script paths. 11–15s: a translucent BIP110 measuring grid descends, checking size and format (not meaning) of each surface; far behind, the cosmic web of validator nodes comes into view.",
     camera: ["Super Dolly Out"],
     models: { primary: "Seedance 2.0", alt: "Kling 3.0" },
     narration:
