@@ -15,9 +15,17 @@ export type CameraPreset =
   | "Eyes In"
   | "Static";
 
-/** Video model candidates available in the Higgsfield workspace. */
+/**
+ * Video model candidates available in the Higgsfield workspace.
+ *
+ * Aspect ratio disqualifies models before quality does. Verified via `models_explore` 2026-07-17:
+ * only the Seedance family renders **21:9** — `Kling 3.0`, `Cinema Studio` and `Veo 3.1` top out at
+ * 16:9. `Cinema Studio` also only accepts 5s or 10s durations, and `Veo 3.1` caps at 8s.
+ * A 21:9 project (see each project's `production.aspectRatio`) can therefore only use Seedance.
+ */
 export type VideoModel =
   | "Seedance 2.0"
+  | "Seedance 2.0 Mini"
   | "DoP"
   | "Cinema Studio"
   | "Kling 3.0"

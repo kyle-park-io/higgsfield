@@ -3,7 +3,7 @@
 - **Layer:** atom (cyan)
 - **Camera:** Crash Zoom In → 360 Orbit
 - **Keyframe model:** nano_banana_2
-- **Video model:** Cinema Studio (A) / Seedance 2.0 (B)
+- **Video model:** Seedance 2.0 (A) / Seedance 2.0 Mini (B)
 - **Format:** 21:9 keyframe · 24fps · 12s clip
 - **Status:** keyframe
 

@@ -3,7 +3,7 @@
 - **Layer:** quark (violet)
 - **Camera:** Static
 - **Keyframe model:** nano_banana_2
-- **Video model:** Seedance 2.0 (A) / Veo 3.1 (B)
+- **Video model:** Seedance 2.0 (A) / Seedance 2.0 Mini (B)
 - **Format:** 21:9 keyframe · 24fps · 13s clip
 - **Status:** keyframe
 

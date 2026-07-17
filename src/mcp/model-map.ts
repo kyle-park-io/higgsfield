@@ -80,40 +80,82 @@ export const keyframeChoice = {
 export const CAMERA_IN_MCP_VIDEO =
   "prompt-driven — no camera-preset param; describe scene.camera in the motion prompt";
 
-/** `scenes[].models` (VideoModel) → MCP video model. Costs are per single clip. */
+/**
+ * `scenes[].models` (VideoModel) → MCP video model.
+ *
+ * **Aspect ratio disqualifies before quality does.** Only four generators render **21:9**:
+ * `seedance_2_0`, `seedance_2_0_mini`, `cinematic_studio_3_0`, `seedance1_5`
+ * (plus `marketing_studio_video`, which is ad-specific). Everything else — the whole Kling
+ * family, every Veo, Wan, Grok, Hailuo — tops out at 16:9. A 21:9 project can only use those four.
+ *
+ * **Video cost is linear in duration.** Measured on 2026-07-17 via `get_cost` at 21:9 / 720p /
+ * silent, so each entry below records a **credits-per-second** rate; multiply by the clip length.
+ * A 5s quote tells you nothing about a 15s clip except by this rate.
+ *
+ * **Beware near-identical ids.** `cinematic_studio_3_0` (Cinema Studio Video 3.0) does 21:9 at
+ * 4–15s. `cinematic_studio_video` and `cinematic_studio_video_v2` are *different, older* models
+ * that do NOT do 21:9 and are capped at 5/10s and 3–12s. Query the exact id.
+ */
 export const videoModelMap: Record<VideoModel, ModelInfo> = {
   "Seedance 2.0": {
     mcpModelId: "seedance_2_0",
     aspects: ["auto", "16:9", "9:16", "4:3", "3:4", "1:1", "21:9"],
-    cost: { "720p/5s": 22.5, "1080p/5s": 45 }, // silent, mode std; 720p→1080p doubles
+    // 21:9/720p/std/silent measured: 5s=22.5, 12s=54, 15s=67.5 → exactly 4.5 cr/s.
+    // mode 'fast' = 3.5 cr/s (52.5 @15s). 1080p/std = 9.0 cr/s (135 @15s).
+    cost: { "720p/s": 4.5, "720p-fast/s": 3.5, "1080p/s": 9 },
     durations: "4–15s",
     note: "start/end image + image/video/audio refs, up to 4k. Our primary.",
+  },
+  "Seedance 2.0 Mini": {
+    mcpModelId: "seedance_2_0_mini",
+    aspects: ["auto", "16:9", "9:16", "4:3", "3:4", "1:1", "21:9"],
+    // 21:9/720p/silent measured: 12s=30, 15s=37.5 → 2.5 cr/s. 480p/720p only (no 1080p/4k).
+    cost: { "720p/s": 2.5 },
+    durations: "4–15s",
+    note: "budget Seedance 2.0 — same 21:9, start/end image and refs, at 2.5 cr/s. Proof clip b33a7b16.",
+  },
+  "Cinema Studio": {
+    mcpModelId: "cinematic_studio_3_0",
+    aspects: ["auto", "21:9", "16:9", "4:3", "1:1", "3:4", "9:16"],
+    // 21:9/720p/silent measured: 12s=60 → 5.0 cr/s. Dearer than Seedance 2.0 std.
+    cost: { "720p/s": 5 },
+    durations: "4–15s",
+    note: "cinema-grade, genre hints, start/end image, up to 4k. The only non-Seedance 21:9 generator.",
   },
   "Kling 3.0": {
     mcpModelId: "kling3_0",
     aspects: ["16:9", "9:16", "1:1"],
-    cost: { "5s/std/silent": 7.5 }, // silent baseline
+    cost: { "5s/std/silent": 7.5 },
     durations: "3–15s",
-    note: "multi-shot, motion transfer. NOT the cheapest — seedance1_5 (4.8cr), cinematic_studio_video / kling2_6 (5cr) are cheaper (see catalog.ts). Audio ('sound:on') adds cost.",
+    note: "UNUSABLE at 21:9 — 16:9 is its ceiling. Multi-shot, motion transfer, audio adds cost.",
   },
   "Veo 3.1": {
     mcpModelId: "veo3_1",
     aspects: ["16:9", "9:16"],
     cost: { "8s/basic/fast": 22 },
-    durations: "4/6/8s (max 8 — under the scenes' 15s)",
-    note: "top-tier cinematic. quality basic/high/ultra raises cost.",
-  },
-  "Cinema Studio": {
-    mcpModelId: "cinematic_studio_3_0",
-    aspects: ["auto", "21:9", "16:9", "4:3", "1:1", "3:4", "9:16"],
-    cost: { "720p/5s": 25 },
-    durations: "4–15s",
-    note: "cinema-grade video, genre hints, up to 4k.",
+    durations: "4/6/8s",
+    note: "UNUSABLE at 21:9, and caps at 8s — under most scene lengths.",
   },
   DoP: {
     mcpModelId: null,
     aspects: ["21:9", "16:9"],
     cost: {},
-    note: "no direct MCP model — substitute Cinema Studio (cinematic_studio_3_0), the camera-aware model.",
+    note: "deprecated — no direct MCP model. Substitute Cinema Studio (cinematic_studio_3_0).",
   },
 };
+
+/**
+ * 21:9-capable generators not in `VideoModel`, kept here so the cheap option is not forgotten.
+ *
+ * `seedance1_5` (Seedance 1.5 Pro) is by far the cheapest 21:9 video: **1.2 cr/s**
+ * (12s @ 21:9/720p/silent = 14.39 cr) — half of Mini, a quarter of Seedance 2.0 std.
+ * Its catch is duration: **only 4, 8 or 12 seconds**, so it cannot serve a 13s or 15s scene.
+ * Reach for it whenever a shot fits in 12s.
+ */
+export const cheap21x9Alternative = {
+  mcpModelId: "seedance1_5",
+  crPerSecond: 1.2,
+  durations: [4, 8, 12],
+  aspects: ["auto", "16:9", "9:16", "4:3", "3:4", "1:1", "21:9"],
+  medias: ["start_image", "end_image"],
+} as const;

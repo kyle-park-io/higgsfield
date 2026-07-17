@@ -105,9 +105,9 @@ export const modelPlans: Record<ProjectModel, ModelPlanInfo> = {
   },
   "Cinema Studio": {
     minPlan: "starter",
-    approxCredits: "unlimited on Starter+ (varies by shot)",
-    confidence: "medium",
-    note: "Bundled with the 'Soul V2 & Cinema' unlimited access on Starter+.",
+    approxCredits: "5.0 cr/s @21:9/720p (60 @12s) — dearer than Seedance 2.0 std",
+    confidence: "high",
+    note: "= `cinematic_studio_3_0`, which does 21:9 at 4–15s. Do NOT confuse it with `cinematic_studio_video` / `_v2`, older models with no 21:9 and 5/10s and 3–12s caps. Bundled with 'Soul V2 & Cinema' unlimited access on Starter+.",
   },
   "DoP": {
     minPlan: "starter",
@@ -123,9 +123,15 @@ export const modelPlans: Record<ProjectModel, ModelPlanInfo> = {
   },
   "Seedance 2.0": {
     minPlan: "plus",
-    approxCredits: "~25 cr / 5s @720p (Fast: ~28 cr / 8s)",
+    approxCredits: "4.5 cr/s @21:9/720p/std (22.5 @5s · 67.5 @15s); fast 3.5 cr/s; 1080p 9 cr/s",
     confidence: "high",
-    note: "Starter includes only Seedance 2.0 *Fast*; the full model unlocks on Plus.",
+    note: "Starter includes only Seedance 2.0 *Fast*; the full model unlocks on Plus. Cost is linear in duration — see src/mcp/model-map.ts.",
+  },
+  "Seedance 2.0 Mini": {
+    minPlan: "plus",
+    approxCredits: "2.5 cr/s @21:9/720p (30 @12s · 37.5 @15s)",
+    confidence: "high",
+    note: "Budget Seedance 2.0: same 21:9 and start/end-image support at ~55% of the std rate. 480p/720p only.",
   },
   "Veo 3.1": {
     minPlan: "plus",

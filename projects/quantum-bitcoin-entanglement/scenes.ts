@@ -91,7 +91,7 @@ export const scenes: Scene[] = [
     motionPrompt:
       "0–5s: scattered cyan plasma orbs drift across the deep-field nebula, their stellar surfaces roiling. 5–11s: orbs are pulled inward and aggregate into one large translucent amber block-body; the gold coinbase orb enters first and settles at the core. 11–15s: block completes with a soft pulsing glow. Particle-aggregation VFX, volumetric light.",
     camera: ["Dolly In"],
-    models: { primary: "Seedance 2.0", alt: "Kling 3.0" }, // tested 3: Seedance std 3d5accd6, Seedance Mini 26956439, Kling v3.0 04b3968f
+    models: { primary: "Seedance 2.0", alt: "Seedance 2.0 Mini" },
     narration:
       "비트코인의 장부는 트랜잭션 하나가 아니라 여러 트랜잭션을 담은 블록에서 시작된다. 블록의 첫 번째 트랜잭션은 새로운 비트코인과 수수료를 수집하는 코인베이스 트랜잭션이다.",
     status: "keyframe",
@@ -106,7 +106,7 @@ export const scenes: Scene[] = [
     motionPrompt:
       "0–5s: the block-header core ignites and shoots one thin bright white-cyan filament back to the previous block; nothing travels along it — both ends respond together. 5–11s: camera pulls back revealing a long chain of blocks linked by filaments, receding into the nebula. 11–15s: one middle block is tampered — every filament after it flashes red and trembles at once. Volumetric light, energy VFX.",
     camera: ["Dolly Out", "Crash Zoom In"],
-    models: { primary: "Seedance 2.0", alt: "Kling 3.0" }, // both tested: Seedance std 31c0cdcb, Kling v3.0 eab0a320
+    models: { primary: "Seedance 2.0", alt: "Seedance 2.0 Mini" },
     narration:
       "블록은 독립적으로 떠 있지 않는다. 각 블록은 이전 블록을 가리키며 순서 있는 기록을 만든다. 과거의 한 블록을 바꾸려면, 그 이후의 연결도 함께 다시 만들어야 한다.",
     status: "keyframe",
@@ -121,7 +121,7 @@ export const scenes: Scene[] = [
     motionPrompt:
       "0–6s: the red tremble still running down the tampered chain fades out of focus as the cosmic web's nodes brighten one by one, each wrapping the gold block in a sphere of sweeping green scan arcs — header, transaction bundle, referenced previous outputs, script results. 6–12s: a valid block glows green across all nodes simultaneously. 12–15s: an invalid block is bounced out in red by every node at once, while the valid gold block holds at center, still glowing green across the whole web.",
     camera: ["Static"],
-    models: { primary: "Seedance 2.0", alt: "Cinema Studio" },
+    models: { primary: "Seedance 2.0", alt: "Seedance 2.0 Mini" },
     narration:
       "비트코인에는 하나의 중앙 검사자가 없다. 각 풀노드는 블록과 트랜잭션을 스스로 검증한다. 같은 규칙을 실행한 노드들이 같은 유효한 기록을 선택한다.",
     status: "keyframe",
@@ -136,7 +136,9 @@ export const scenes: Scene[] = [
     motionPrompt:
       "0–2s: we are already through the gold block surface and mid-warp — warp-tunnel streaks stream past the frame edges and begin to slow; the block we came through is behind us now, left as faint out-of-focus gold orbs at the edges, and with it the green validator glow and the red-rejected block smear away into the streaks; at center the cyan transaction atom is already resolved and holding still. 2–8s: the streaks thin and fall away past the frame edges; the atom holds center as its detail sharpens — it turns slowly and its concentric shells separate into distinct labeled orbits: nucleus (version, locktime), left band (inputs), right band (outputs). 8–12s: gentle orbital rotation as the atom settles and the labels come to rest.",
     camera: ["Crash Zoom In", "360 Orbit"],
-    models: { primary: "Cinema Studio", alt: "Seedance 2.0" },
+    // Only this project's own test so far: Seedance Mini b33a7b16 (21:9, 12s, 30cr) — the motion arc
+    // works and the labels survive, but start_image did NOT pin frame 1; see credit-log.md.
+    models: { primary: "Seedance 2.0", alt: "Seedance 2.0 Mini" },
     narration:
       "트랜잭션은 단순한 송금 메시지가 아니다. 이전 출력을 가리키는 입력과, 앞으로 사용될 새로운 출력을 만드는 구조체다.",
     status: "keyframe",
@@ -151,7 +153,7 @@ export const scenes: Scene[] = [
     motionPrompt:
       "0–2s: the labeled transaction atom from the previous shot is still turning at right, its shells settling and its input band facing left; across the dark space UTXO-A (Alice) burns bright and unspent, and the filament between them has just snapped into place — the input's reference to the previous output. 2–8s: a red SPENT seal closes over UTXO-A; a new UTXO-B (Bob) crystallizes; a smaller change UTXO curves back to Alice. 8–12s: nothing travels along the filament — UTXO-A dims exactly as the new outputs brighten, both ends respond together. Slow push-in.",
     camera: ["Dolly In"],
-    models: { primary: "Seedance 2.0", alt: "Kling 3.0" },
+    models: { primary: "Seedance 2.0", alt: "Seedance 2.0 Mini" },
     narration:
       "비트코인에서 잔액이 주소 사이를 옮겨 다니지 않는다. 이전의 미사용 출력을 소비하고, 새로운 조건을 가진 출력을 만든다.",
     status: "keyframe",
@@ -166,7 +168,7 @@ export const scenes: Scene[] = [
     motionPrompt:
       "0–5s: transaction atoms light up as nodes on a violet web — a filament points from TX0 output[1] to TX1 input[0], which branches into output[0] and output[1]; nothing travels along the filament — both ends respond together. 5–9s: the web branches outward into deep space like a cosmic filament structure. 9–13s: two filaments point at the same already-spent output; only one survives, the other collapses in red.",
     camera: ["Dolly Out", "Arc Left"],
-    models: { primary: "Seedance 2.0", alt: "Kling 3.0" },
+    models: { primary: "Seedance 2.0", alt: "Seedance 2.0 Mini" },
     narration:
       "트랜잭션의 연결은 단순한 계좌 이력보다 소비 가능한 출력들의 방향성 그래프에 가깝다. 하나의 출력은 유효한 체인에서 단 한 번만 소비될 수 있다.",
     status: "keyframe",
@@ -181,7 +183,7 @@ export const scenes: Scene[] = [
     motionPrompt:
       "0–3s: the filament that survived the double-spend still glows while the collapsed one fades red at the edges; the camera crash zooms along it through the atom shell into the output it points at — macro warp-tunnel streaks resolving on a glowing violet scriptPubKey lock condition. 3–10s: the lock settles at center and its detail resolves; across the dark space, inside the next transaction's input, the Sig and PubKey particles of the scriptSig settle side by side as the proof, and one thin bright white-cyan filament snaps into place between that proof and the lock it satisfies; nothing travels along it — both ends respond together. 10–15s: opcodes materialize and orbit around the lock. Shallow depth of field.",
     camera: ["Crash Zoom In", "Eyes In"],
-    models: { primary: "Cinema Studio", alt: "Seedance 2.0" },
+    models: { primary: "Seedance 2.0", alt: "Seedance 2.0 Mini" },
     narration:
       "출력은 단순히 소유자의 이름을 기록하지 않는다. 앞으로 이 출력을 소비할 때 갖춰야 할 조건을 기록한다. 소비자는 다음 트랜잭션의 입력에서 그 조건을 만족하는 증명을 제시한다.",
     status: "keyframe",
@@ -196,7 +198,7 @@ export const scenes: Scene[] = [
     motionPrompt:
       "0–3s: a \"Sig\" particle drops into a vertical transparent stack; \"PubKey\" stacks above. 3–8s: OP_DUP duplicates the pubkey, OP_HASH160 hashes the copy, it is compared to the stored PubKeyHash, OP_EQUALVERIFY checks the match, OP_CHECKSIG verifies the signature — each shown as a sequential particle collision. 8–11s: a single green TRUE particle remains. 11–13s: a failure branch shows a red FALSE collapse.",
     camera: ["Static"],
-    models: { primary: "Seedance 2.0", alt: "Veo 3.1" },
+    models: { primary: "Seedance 2.0", alt: "Seedance 2.0 Mini" },
     narration:
       "스크립트는 선언문이 아니라 실행 순서다. 데이터가 스택에 쌓이고, 연산자가 하나씩 실행된다. 최종 결과가 참이어야 이전 출력을 소비할 수 있다.",
     status: "keyframe",
@@ -214,7 +216,7 @@ export const scenes: Scene[] = [
     motionPrompt:
       "0–6s: camera pulls back from the stack to reveal the whole transaction atom and its many data surfaces (scriptPubKey, OP_RETURN, scriptSig, witness, Taproot path, coinbase input). 6–11s: data particles approach each surface — some become spend conditions, some sit inert, some hide inside witness/script paths. 11–15s: a translucent BIP110 measuring grid descends, checking size and format (not meaning) of each surface; far behind, the cosmic web of validator nodes comes into view.",
     camera: ["Super Dolly Out"],
-    models: { primary: "Seedance 2.0", alt: "Kling 3.0" },
+    models: { primary: "Seedance 2.0", alt: "Seedance 2.0 Mini" },
     narration:
       "가장 작은 층으로 내려오면 논쟁의 본질이 나타난다. 같은 바이트라도 어떤 것은 소유권을 증명하고, 어떤 것은 지불 조건을 만들며, 어떤 것은 임의의 정보를 운반한다. 따라서 BIP110의 질문은 단순히 'OP_RETURN을 허용할 것인가'가 아니다. 트랜잭션의 여러 데이터 표면에 대해 합의 규칙이 어디까지 크기와 형식을 제한할 것인가의 문제다.",
     status: "keyframe",
