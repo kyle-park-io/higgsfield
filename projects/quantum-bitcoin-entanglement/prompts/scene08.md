@@ -14,7 +14,7 @@ Scientific visualization, extreme macro: a tall vertical transparent stack-tube 
 0–3s: a "Sig" particle drops into a vertical transparent stack; "PubKey" stacks above. 3–9s: OP_DUP duplicates the pubkey, OP_HASH160 hashes the copy, it is compared to the stored PubKeyHash, OP_EQUALVERIFY checks the match, OP_CHECKSIG verifies the signature — each shown as a sequential particle collision. 9–12s: a single green TRUE particle remains at the top of the stack. 12–15s: the stack holds, the green TRUE glowing steadily, a calm final beat.
 
 ## Narration (KO)
-스크립트는 선언문이 아니라 실행 순서다. 데이터가 스택에 쌓이고 연산자가 순서대로 실행된다. 최종 결과가 참이어야 이전 출력을 소비할 수 있다.
+스크립트는 선언문이 아니라 실행 순서다. 데이터가 쌓이고 연산자가 실행된다. 최종 결과가 참이어야 이전 출력을 소비할 수 있다.
 
 ---
 _Common style tags: one continuous deep-space field (never a physical room, laboratory, planet surface, or real-world location — no benches, monitors, furniture, landscapes, or people), dense starfield with a defocused deep-field nebula behind the subject and a dark near-field for contrast, bioluminescent particles, translucent 3D structures, volumetric glow, high detail, cinematic_
