@@ -14,7 +14,7 @@ Photoreal deep-field astrophotography of an immense starfield with a rich magent
 0–5s: scattered cyan plasma orbs drift across the deep-field nebula, their stellar surfaces roiling. 5–11s: orbs are pulled inward and aggregate into one large translucent amber block-body; the gold coinbase orb enters first and settles at the core. 11–15s: block completes with a soft pulsing glow. Particle-aggregation VFX, volumetric light.
 
 ## Narration (KO)
-비트코인의 장부는 거래 하나가 아니라 여러 트랜잭션을 담은 블록에서 시작된다. 블록의 첫 번째 트랜잭션은 새로운 비트코인과 수수료를 수집하는 코인베이스 트랜잭션이다.
+비트코인의 장부는 트랜잭션 하나가 아니라 여러 트랜잭션을 담은 블록에서 시작된다. 블록의 첫 번째 트랜잭션은 새로운 비트코인과 수수료를 수집하는 코인베이스 트랜잭션이다.
 
 ---
 _Common style tags: one continuous deep-space field (never a physical room, laboratory, planet surface, or real-world location — no benches, monitors, furniture, landscapes, or people), dense starfield with a defocused deep-field nebula behind the subject and a dark near-field for contrast, bioluminescent particles, translucent 3D structures, volumetric glow, high detail, cinematic_
