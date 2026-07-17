@@ -25,14 +25,14 @@ rules confirmed by the scene 4/5 proofs. It complements the restyle design spec
 5. **Silent clips** (`generate_audio:false`); Korean VO is a separate track, muxed in assembly.
 6. **Decline the preset recommendation.** Generation often suggests the "IN THE DARK" preset — pass
    `declined_preset_id` and generate literally.
+7. **Clip lengths** are VO + ~2 s (measured Brooks VO): 4=12, 5=13, 6=15, 8=15, the rest 15, scene 9
+   splits 9a/9b. Motion prompts end on a "calm final beat" filling the tail so nothing hard-cuts the
+   instant the voice stops.
 8. **Labels must not re-render — keep them anchored to a still.** In an end_chain morph the labels
    are re-generated as the composition moves, and they corrupt: wrong spellings and even a wrong
    number (Bob at 5.5 instead of 3.5 BTC). Labels only stay reliable when they hold to a keyframe
    (front-on hold, or a dolly that never re-lays them out). This is why transitions are done in edit
    (cross-dissolve), not by morphing one scene into the next.
-7. **Clip lengths** are VO + ~2 s (measured Brooks VO): 4=12, 5=13, 6=15, 8=15, the rest 15, scene 9
-   splits 9a/9b. Motion prompts end on a "calm final beat" filling the tail so nothing hard-cuts the
-   instant the voice stops.
 
 ## Transition method per seam
 
