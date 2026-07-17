@@ -40,7 +40,7 @@ The reference is also 9:16; this project stays **21:9**, as previously decided.
 | Question | Decision |
 |---|---|
 | What to borrow | Motifs mapped onto Bitcoin concepts; continuous-zoom structure kept. |
-| Narration | **Locked.** No change to `narration`, scene order, `durationSeconds`, `camera`, or `models`. |
+| Narration | **Minimal polish only** (revised 2026-07-17 — see "Narration polish"). Scene order, `durationSeconds`, `camera`, `models` stay locked. |
 | Background | Nebula as defocused depth behind the subject; near-field stays dark. |
 | Render tone | Split by layer — photoreal astrophotography for molecule, scientific diagram for atom/quark. |
 
@@ -103,6 +103,60 @@ and every other palette entry. Bitcoin orange `#F7931A` is a brand constant.
 **Why `nebulaByLayer` exists.** `layerColor.quark` is violet and the reference nebula is violet, so
 the quark scenes (7–9) would put a violet subject on a violet background. Turning the nebula deep
 teal for those scenes is what keeps the script particles legible.
+
+## Narration polish (revision, 2026-07-17)
+
+The original decision locked `narration` outright. The user has since reopened it for **minimal
+polish where a line is genuinely awkward** — not rewriting, and not re-basing the script on the
+entanglement motif. Three lines qualify; the other six are accurate and VO-paced, and touching them
+would only cost VO credits.
+
+| Scene | Problem | Change |
+|---|---|---|
+| 1 | Calls one concept both `거래` and `트랜잭션` inside a single sentence, blurring the very term the video teaches | `거래 하나가 아니라` → `트랜잭션 하나가 아니라` |
+| 5 | `잔액 덩어리가 … 이동하는 것은 아니다` — `덩어리` is awkward, and this is the line the whole filament motif rests on | → `잔액이 주소 사이를 옮겨 다니지 않는다` |
+| 7 | `만족해야 할 조건` … `조건을 만족하는` — `만족` twice in adjacent sentences | `소비하기 위해 만족해야 할 조건` → `소비할 때 갖춰야 할 조건` |
+
+Each edit holds meaning and syllable count, so `durationSeconds` does not move.
+
+**This changes the verification gate.** The narration-locked check compared all 9 scenes' narration
+byte-for-byte against `quantum-bitcoin-elements`. Scenes 1, 5, and 7 will now legitimately differ.
+The gate becomes: **scenes 2, 3, 4, 6, 8, 9 must stay byte-identical to the sibling; scenes 1, 5, 7
+must match the table above.** A blanket 9-scene diff would now fail on correct output.
+
+**Downstream:** scenes 1 and 5 already have Brooks VO generated against the old text. Those two clips
+must be regenerated before use — a credit spend, so it needs explicit confirmation and does not
+happen in this pass.
+
+## Scene-to-scene continuity and pacing (revision, 2026-07-17)
+
+The user's note: scenes must connect well and must not whip past ("너무 슉슉 넘어가면 안 되고").
+Two concrete problems, both real:
+
+**1. The transition eats the scene.** Making the warp tunnel the transition motif stacked "faster" on
+top of camera moves that were already crash zooms. Scene 4 spends `0–4s` of a 12s clip in the warp —
+a third of the shot is transition before the subject arrives. Scene 7 spends `0–5s` of 15s.
+
+Rule: **the warp is an entrance, not the room.** Cap it at roughly the first sixth of a clip, and
+give the reclaimed time to the subject settling. Scene 4's warp → `0–2s`; scene 7's → `0–3s`.
+`camera` presets and `durationSeconds` do not change — only the motion prompt's segment timings.
+
+**2. Four joints don't hold.** A scene ends on one image and the next opens on an unrelated one:
+
+| Joint | Break |
+|---|---|
+| 2 → 3 | Ends on a tampered block flashing red; opens on validator nodes brightening, with nothing carrying over |
+| 3 → 4 | Ends on an invalid block bounced out red; opens mid-warp into a *different*, valid block |
+| 4 → 5 | Ends on a labelled atom settling; opens on UTXO-A alone, no trace of the atom just left |
+| 6 → 7 | Ends on a double-spend collapsing red; opens mid-warp into an output |
+
+Rule: **every scene's first motion segment names what carried over from the previous scene's last
+frame**, and each keyframe keeps a visible trace of the scene before it (the same device scene 4
+already uses — "faint out-of-focus … parent block-body … at the edges"). This matches how the clips
+are generated anyway: last frame of scene N seeds the first frame of scene N+1.
+
+Scenes 8 → 9 already do this correctly ("camera pulls back from the stack") and are the model to
+copy.
 
 ## Known trade-off: `grammar` is documentation, not a template
 
