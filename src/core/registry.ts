@@ -1,6 +1,6 @@
 import type { Scene } from "./types.ts";
 import * as quantumBitcoinElements from "../../projects/quantum-bitcoin-elements/scenes.ts";
-import * as quantumEntanglement from "../../projects/quantum-entanglement/scenes.ts";
+import * as quantumBitcoinEntanglement from "../../projects/quantum-bitcoin-entanglement/scenes.ts";
 
 /**
  * Registry of every production project in this monorepo.
@@ -14,7 +14,7 @@ import * as quantumEntanglement from "../../projects/quantum-entanglement/scenes
  */
 export const PROJECTS = {
   "quantum-bitcoin-elements": quantumBitcoinElements,
-  "quantum-entanglement": quantumEntanglement,
+  "quantum-bitcoin-entanglement": quantumBitcoinEntanglement,
 } satisfies Record<string, { scenes: Scene[]; production: unknown }>;
 
 export type ProjectName = keyof typeof PROJECTS;

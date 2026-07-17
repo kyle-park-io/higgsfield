@@ -9,8 +9,9 @@ selected with the `--project <name>` flag (default: `quantum-bitcoin-elements`).
 
 - **`quantum-bitcoin-elements`** (default) — the 9-scene explainer as one continuous zoom
   (blockchain → block → transaction → input/output → script → opcode·byte).
-- **`quantum-entanglement`** — same 9-scene guide & format (21:9), re-based on a new reference
-  video (`projects/quantum-entanglement/references/…mp4`) as its visual base.
+- **`quantum-bitcoin-entanglement`** — the same 9-scene Bitcoin story & format (21:9), restyled
+  onto a new reference video (`projects/quantum-bitcoin-entanglement/references/…mp4`) as its
+  visual base.
 
 ## Prerequisites
 
@@ -43,7 +44,8 @@ directly from this session.
 ## Scripts
 
 All scene-aware scripts take `--project <name>` (or `-p`, or `HF_PROJECT=<name>`); omit it to use
-the default project. Pass it after `--`, e.g. `pnpm shot-list -- --project quantum-entanglement`.
+the default project. Pass it after `--`, e.g.
+`pnpm shot-list -- --project quantum-bitcoin-entanglement`.
 
 | Command | What it does |
 |---|---|
@@ -74,7 +76,7 @@ projects/          one independent project per folder
     credit-log.md  per-asset credit spend log (local only — git-ignored)
     keyframes/     stills, per scene: keyframes/sceneNN/  (git-ignored — large binaries)
     outputs/       rendered video clips + audio/ (git-ignored — large binaries)
-  quantum-entanglement/
+  quantum-bitcoin-entanglement/
     scenes.ts · prompts/ · docs/ · keyframes/ · outputs/
     references/    the reference video(s) this project is based on (git-ignored)
 ```
