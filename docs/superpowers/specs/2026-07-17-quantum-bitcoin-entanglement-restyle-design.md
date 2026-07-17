@@ -83,7 +83,9 @@ diagram at centre.
 Changed:
 
 - `styleTags` — "one continuous dark cosmic void" → "one continuous deep-space field". Negative list
-  widened from rooms/labs to also forbid planet surfaces, landscapes, and people.
+  widened from rooms/labs to also forbid planet surfaces, landscapes, and people. "scientific
+  visualization" is **dropped** from the list — tone is no longer project-wide, so it moves into
+  `toneByLayer`, which applies it to atom/quark only and gives molecule photoreal astrophotography.
 - `palette.background` — "deep black to dark navy void, volumetric fog" → "dense starfield with a
   defocused deep-field nebula; dark near-field for contrast".
 
@@ -131,7 +133,7 @@ and `status`. Only `keyframePrompt` and `motionPrompt` change, and scene 8's mot
 | 4 | atom | **Hinge.** Warp streaks at frame edges resolve into the labelled cyan atom. Tone transition visible in-frame. All labels kept. |
 | 5 | atom | **Thematic peak.** UTXO A (dimming, SPENT) and the new tx joined by the filament; nothing travels. |
 | 6 | atom | Tx graph becomes a **directed cosmic web**. Double-spend: two filaments reach one node, one collapses red. |
-| 7 | quark | Macro warp into the output; sig + pubkey dock as an **entangled pair**. Background turns deep teal. |
+| 7 | quark | Macro warp into the output; the **filament** joins the arriving proof (sig + pubkey, in the next tx's input) to the scriptPubKey lock it satisfies — proof → condition, per the grammar table. Background turns deep teal. |
 | 8 | quark | Background only — deep teal so the violet stack reads. Motion prompt unchanged. |
 | 9 | quark | Pull-back reveals the **cosmic web again** in the far background — bookends scenes 3 and 6. |
 
