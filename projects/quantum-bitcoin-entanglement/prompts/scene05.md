@@ -8,10 +8,10 @@
 - **Status:** keyframe
 
 ## Keyframe prompt
-An atomic-diagram scene rendered entirely as glowing cyan particles and atoms (no machinery, no robots): a bright cyan output atom labeled "UTXO A / Alice (5.0 BTC)" stamped with a red "SPENT" seal; a new transaction shown as a glowing cyan atom whose input is a luminous energy reference-link (a glowing tendril, not a mechanical arm) pointing at UTXO A; a newly forming cyan output atom "UTXO B / Bob (3.5 BTC)"; a smaller cyan "Change UTXO / Alice (1.5 BTC)" atom curving back toward Alice; the spent atom dims while the new atoms brighten — no coin physically travels; dark void; no robotic arm, no mechanical device, no syringe, no drill
+Scientific visualization, ornate atomic diagram rendered entirely as glowing cyan particles and atoms (no machinery, no robots): on the left a bright cyan output atom labeled "UTXO A / Alice (5.0 BTC)", dimming, stamped with a red "SPENT" seal; on the right a new transaction atom, brightening; the two are separated across dark space and joined by one thin, intensely bright white-cyan energy filament — the input's reference to the previous output; nothing travels along the filament, no coin, no particle — the left atom dims exactly as the right brightens, both ends responding together; a newly forming cyan output atom "UTXO B / Bob (3.5 BTC)" and a smaller cyan "Change UTXO / Alice (1.5 BTC)" atom curving back toward Alice; behind everything a muted violet-to-teal nebula, low density, heavily defocused; dense starfield, dark near-field, cinematic, ultra detailed, legible small text labels; no robotic arm, no mechanical device, no syringe, no drill, no physical room or lab, no planet surface, no landscape, no people
 
 ## Motion (video) prompt
-0–4s: UTXO-A (Alice) glows brightly. 4–9s: a new transaction's input reaches out and references UTXO-A; a red SPENT mark seals it; a new UTXO-B (Bob) crystallizes; a smaller change UTXO returns to Alice. 9–12s: no coin physically travels — the old output dims while new outputs glow. Slow push-in.
+0–4s: UTXO-A (Alice) glows brightly alone. 4–9s: a filament snaps into place between UTXO-A and the new transaction — the input's reference; a red SPENT seal closes over UTXO-A; a new UTXO-B (Bob) crystallizes; a smaller change UTXO curves back to Alice. 9–12s: nothing travels along the filament — UTXO-A dims exactly as the new outputs brighten, both ends responding together. Slow push-in.
 
 ## Narration (KO)
 비트코인에서 잔액 덩어리가 주소 사이를 이동하는 것은 아니다. 이전의 미사용 출력을 소비하고, 새로운 조건을 가진 출력을 만든다.
