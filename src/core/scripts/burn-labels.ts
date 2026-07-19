@@ -60,8 +60,15 @@ const filter = scene.labels
 console.log(`burning ${scene.labels.length} labels onto scene ${sceneId} (${projectName})`);
 for (const l of scene.labels) console.log(`  "${l.text}"  @ ${l.x}, ${l.y}`);
 
-execFileSync("ffmpeg", ["-loglevel", "error", "-i", input, "-vf", filter, "-c:a", "copy", output, "-y"], {
-  stdio: "inherit",
-});
+// High-quality encode: labels are burned from the source and this clip feeds the assembly, so keep
+// it near-lossless (crf 15, slow) to minimise generational loss through the pipeline.
+execFileSync(
+  "ffmpeg",
+  // prettier-ignore
+  ["-loglevel", "error", "-i", input, "-vf", filter,
+   "-c:v", "libx264", "-preset", "slow", "-crf", "15", "-pix_fmt", "yuv420p",
+   "-c:a", "copy", output, "-y"],
+  { stdio: "inherit" },
+);
 
 console.log(`\nwrote ${output.replace(join(dir, ".."), "projects")}`);
